@@ -59,16 +59,11 @@ public class ButtonSettings extends SettingsPreferenceFragment implements OnPref
     private static final String CATEGORY_KEYS = "button_keys";
     private static final String CATEGORY_OTHER = "button_other";
     private static final String CATEGORY_POWER = "button_power";
-//    private static final String KEYS_SHOW_NAVBAR_KEY = "navigation_bar_show";
     private static final String NAVIGATION_BAR_RECENTS_STYLE = "navbar_recents_style";
-    private static final String KEY_BUTTON_LIGHT = "button_brightness";
     private static final String SYSTEM_PROXI_CHECK_ENABLED = "system_proxi_check_enabled";
     private static final String KEY_ADVANCED_REBOOT = "advanced_reboot";
 
     private ListPreference mNavbarRecentsStyle;
-//    private SwitchPreference mEnableNavBar;
-    private Preference mButtonLight;
-
 
     @Override
     public int getMetricsCategory() {
@@ -83,30 +78,8 @@ public class ButtonSettings extends SettingsPreferenceFragment implements OnPref
 
         final ContentResolver resolver = getContentResolver();
         final PreferenceScreen prefScreen = getPreferenceScreen();
-        /*final int deviceKeys = getResources().getInteger(
-                com.android.internal.R.integer.config_deviceHardwareKeys);
-        final boolean buttonLights = false; // getResources().getBoolean(
-//                com.android.internal.R.bool.config_button_brightness_support);
-        final PreferenceCategory keysCategory =
-                (PreferenceCategory) prefScreen.findPreference(CATEGORY_KEYS);
-        final PreferenceCategory otherCategory =
-                (PreferenceCategory) prefScreen.findPreference(CATEGORY_OTHER);*/
         final PreferenceCategory powerCategory =
                 (PreferenceCategory) prefScreen.findPreference(CATEGORY_POWER);
-
-//        mEnableNavBar = (SwitchPreference) prefScreen.findPreference(KEYS_SHOW_NAVBAR_KEY);
-        /*mButtonLight = prefScreen.findPreference(KEY_BUTTON_LIGHT);
-
-        if (deviceKeys == 0) {
-            prefScreen.removePreference(keysCategory);
-        } else if (!buttonLights) {
-            keysCategory.removePreference(mButtonLight);
-        }
-
-//        boolean showNavBarDefault = DeviceUtils.deviceSupportNavigationBar(getActivity());
-//        boolean showNavBar = Settings.System.getInt(resolver,
-//                Settings.System.OMNI_NAVIGATION_BAR_SHOW, showNavBarDefault ? 1 : 0) == 1;
-//        mEnableNavBar.setChecked(showNavBar);*/
 
         mNavbarRecentsStyle = (ListPreference) findPreference(NAVIGATION_BAR_RECENTS_STYLE);
         int recentsStyle = Settings.System.getInt(resolver,
@@ -116,31 +89,28 @@ public class ButtonSettings extends SettingsPreferenceFragment implements OnPref
         mNavbarRecentsStyle.setSummary(mNavbarRecentsStyle.getEntry());
         mNavbarRecentsStyle.setOnPreferenceChangeListener(this);
 
-        boolean supportPowerButtonProxyCheck = getResources().getBoolean(com.android.internal.R.bool.config_proxiSensorWakupCheck);
-        SwitchPreference proxyCheckPreference = (SwitchPreference) findPreference(SYSTEM_PROXI_CHECK_ENABLED);
-        if (!DeviceUtils.deviceSupportsProximitySensor(getActivity()) || !supportPowerButtonProxyCheck) {
-            powerCategory.removePreference(proxyCheckPreference);
-        }
+        if(getResources().getBoolean(R.bool.config_has_power_button)){
+            boolean supportPowerButtonProxyCheck = getResources().getBoolean(com.android.internal.R.bool.config_proxiSensorWakupCheck);
+            SwitchPreference proxyCheckPreference = (SwitchPreference) findPreference(SYSTEM_PROXI_CHECK_ENABLED);
+            if (!DeviceUtils.deviceSupportsProximitySensor(getActivity()) || !supportPowerButtonProxyCheck) {
+                powerCategory.removePreference(proxyCheckPreference);
+            }
 
-        String[] rebootList = getResources().getStringArray(com.android.internal.R.array.config_rebootActionsList);
-        if (rebootList.length == 0) {
-            Preference advancedReboot = findPreference(KEY_ADVANCED_REBOOT);
-            powerCategory.removePreference(advancedReboot);
-        }
-        if(powerCategory.getPreferenceCount() == 0){
+            String[] rebootList = getResources().getStringArray(com.android.internal.R.array.config_rebootActionsList);
+            if (rebootList.length == 0) {
+                Preference advancedReboot = findPreference(KEY_ADVANCED_REBOOT);
+                powerCategory.removePreference(advancedReboot);
+            }
+            if(powerCategory.getPreferenceCount() == 0){
+                prefScreen.removePreference(powerCategory);
+            }
+        } else {
             prefScreen.removePreference(powerCategory);
-        }
-
+        } 
     }
 
     @Override
     public boolean onPreferenceTreeClick(Preference preference) {
-//        if (preference == mEnableNavBar) {
-//            boolean checked = ((SwitchPreference)preference).isChecked();
-//            Settings.System.putInt(getContentResolver(),
-//                    Settings.System.OMNI_NAVIGATION_BAR_SHOW, checked ? 1:0);
-//            return true;
-//        }
         return super.onPreferenceTreeClick(preference);
     }
 
@@ -213,13 +183,11 @@ public class ButtonSettings extends SettingsPreferenceFragment implements OnPref
                 @Override
                 public List<String> getNonIndexableKeys(Context context) {
                     ArrayList<String> result = new ArrayList<String>();
-                    /*final Resources res = context.getResources();
-                    final int deviceKeys = res.getInteger(
-                            com.android.internal.R.integer.config_deviceHardwareKeys);
+                    final Resources res = context.getResources();
 
-                    if (deviceKeys == 0) {
-                        result.add(CATEGORY_KEYS);
-                    }*/
+                    if (!res.getBoolean(R.bool.config_has_power_button)) {
+                        result.add(CATEGORY_POWER);
+                    }
                     return result;
                 }
             };
