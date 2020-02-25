@@ -25,11 +25,13 @@ import android.provider.Settings;
 import android.text.TextUtils;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
+import com.android.internal.util.omni.DeviceUtils;
 
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceScreen;
 import androidx.preference.PreferenceCategory;
+import androidx.preference.SwitchPreference;
 
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.R;
@@ -53,6 +55,7 @@ public class BarsSettings extends SettingsPreferenceFragment implements Indexabl
     private static final String TAG = "BarsSettings";
     private static final String KEY_STATUSBAR_CATEGORY = "statusbar_settings_category";
     private static final String KEY_USE_OLD_MOBILETYPE = "use_old_mobiletype";
+    private static final String KEYS_SHOW_NAVBAR_KEY = "navbar_visibility";
 
     @Override
     public int getMetricsCategory() {
@@ -73,6 +76,14 @@ public class BarsSettings extends SettingsPreferenceFragment implements Indexabl
         if (statusBarCategory.getPreferenceCount() == 0) {
             getPreferenceScreen().removePreference(statusBarCategory);
         }
+
+        final boolean navBarDevice = getResources().getBoolean(
+                com.android.internal.R.bool.config_showNavigationBar);
+        SwitchPreference enableNavBar = (SwitchPreference) getPreferenceScreen().findPreference(KEYS_SHOW_NAVBAR_KEY);
+        boolean showNavBarDefault = DeviceUtils.deviceSupportNavigationBar(getActivity());
+        boolean showNavBar = Settings.System.getInt(getContentResolver(),
+                Settings.System.OMNI_NAVIGATION_BAR_SHOW, showNavBarDefault ? 1 : 0) == 1;
+        enableNavBar.setChecked(showNavBar);
     }
 
     @Override

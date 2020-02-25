@@ -42,6 +42,11 @@
             android:title="@string/navigationbar_title">
 
             <org.omnirom.omnilib.preference.SystemSettingSwitchPreference
+                android:key="navbar_visibility"
+                android:title="@string/navigation_bar_show_title"
+                android:summary="@string/navigation_bar_show_summary" />
+
+            <org.omnirom.omnilib.preference.SystemSettingSwitchPreference
                 android:key="navigation_bar_menu_arrow_keys"
                 android:title="@string/navigation_bar_menu_arrow_keys_title"
                 android:summary="@string/navigation_bar_menu_arrow_keys_summary"
