@@ -19,12 +19,13 @@ package org.omnirom.omnigears.interfacesettings;
 import android.os.Bundle;
 import android.content.Context;
 import android.content.Intent;
-// import android.content.res.Resources;
+import android.content.res.Resources;
 import androidx.preference.Preference;
 import android.provider.SearchIndexableResource;
 import android.provider.Settings;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
+import com.android.internal.util.omni.PackageUtils;
 
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.R;
@@ -45,6 +46,8 @@ public class LockscreenItemSettings extends SettingsPreferenceFragment implement
 
     private static final String TAG = "LockscreenItemSettings";
     private static final String KEY_LOCKSCREEN_MEDIA_BLUR = "lockscreen_media_blur";
+    private static final String KEY_LOCKSCREEN_WEATHER = "lockscreen_weather_enabled";
+    private static final String WEATHER_SERVICE_PACKAGE = "org.omnirom.omnijaws";
 
     private SeekBarPreference mLockscreenMediaBlur;
 
@@ -63,6 +66,13 @@ public class LockscreenItemSettings extends SettingsPreferenceFragment implement
                 Settings.System.OMNI_LOCKSCREEN_MEDIA_BLUR, 12), 25);
         mLockscreenMediaBlur.setValue(value);
         mLockscreenMediaBlur.setOnPreferenceChangeListener(this);
+
+        if (!PackageUtils.isAvailableApp(WEATHER_SERVICE_PACKAGE, getContext())) {
+            Preference pref = getPreferenceScreen().findPreference(KEY_LOCKSCREEN_WEATHER);
+            if (pref != null) {
+                getPreferenceScreen().removePreference(pref);
+            }
+        }
     }
 
     @Override
