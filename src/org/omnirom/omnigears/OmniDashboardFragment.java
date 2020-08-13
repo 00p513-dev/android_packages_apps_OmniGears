@@ -50,6 +50,7 @@ public class OmniDashboardFragment extends DashboardFragment {
     private static final String KEY_DIALER_SETTINGS = "dialer_settings";
     private static final String KEY_FINGERPRINT_SETTINGS = "fingerprint_settings";
     private static final String KEY_WEATHER_SETTINGS = "omnijaws_settings";
+    private static final String KEY_AMBIENT_DISPLAY = "doze_settings";
 
     private static final String PACKAGE_DEVICE_PARTS = "org.omnirom.device";
     private static final String WEATHER_SERVICE_PACKAGE = "org.omnirom.omnijaws";
@@ -88,6 +89,13 @@ public class OmniDashboardFragment extends DashboardFragment {
         mFingerprintManager = (FingerprintManager) getActivity().getSystemService(Context.FINGERPRINT_SERVICE);
         if (mFingerprintManager == null || !mFingerprintManager.isHardwareDetected()){
             Preference pref = getPreferenceScreen().findPreference(KEY_FINGERPRINT_SETTINGS);
+            if (pref != null) {
+                getPreferenceScreen().removePreference(pref);
+            }
+        }
+
+        if (!getResources().getBoolean(com.android.internal.R.bool.config_dozeAlwaysOnDisplayAvailable)) {
+            Preference pref = getPreferenceScreen().findPreference(KEY_AMBIENT_DISPLAY);
             if (pref != null) {
                 getPreferenceScreen().removePreference(pref);
             }
