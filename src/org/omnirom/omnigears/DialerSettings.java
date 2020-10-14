@@ -27,8 +27,8 @@ import com.android.settings.SettingsPreferenceFragment;
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.settings.search.BaseSearchIndexProvider;
-import com.android.settings.search.Indexable;
 
+import com.android.settingslib.search.Indexable;
 import com.android.settingslib.search.SearchIndexable;
 
 import java.util.List;
@@ -40,7 +40,7 @@ public class DialerSettings extends SettingsPreferenceFragment implements Indexa
 
     @Override
     public int getMetricsCategory() {
-        return MetricsEvent.OMNI_SETTINGS;
+        return 1751;
     }
 
     @Override

@@ -40,8 +40,8 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 import com.android.settings.search.BaseSearchIndexProvider;
-import com.android.settings.search.Indexable;
 
+import com.android.settingslib.search.Indexable;
 import com.android.settingslib.search.SearchIndexable;
 
 import java.util.List;
@@ -63,7 +63,7 @@ public class OmniJawsSettings extends SettingsPreferenceFragment implements
 
     @Override
     public int getMetricsCategory() {
-        return MetricsEvent.OMNI_SETTINGS;
+        return 1751;
     }
 
     @Override
@@ -72,7 +72,7 @@ public class OmniJawsSettings extends SettingsPreferenceFragment implements
         addPreferencesFromResource(R.xml.omnijaws_settings);
         final PreferenceScreen prefScreen = getPreferenceScreen();
 
-        mWeatherCategory = (PreferenceCategory) prefScreen.findPreference(CATEGORY_WEATHER);
+       /* mWeatherCategory = (PreferenceCategory) prefScreen.findPreference(CATEGORY_WEATHER);
         if (mWeatherCategory != null && !isOmniJawsServiceInstalled()) {
             prefScreen.removePreference(mWeatherCategory);
         } else {
@@ -100,17 +100,17 @@ public class OmniJawsSettings extends SettingsPreferenceFragment implements
             mWeatherIconPack.setValueIndex(valueIndex >= 0 ? valueIndex : 0);
             mWeatherIconPack.setSummary(mWeatherIconPack.getEntry());
             mWeatherIconPack.setOnPreferenceChangeListener(this);
-        }
+        }*/
     }
 
     public boolean onPreferenceChange(Preference preference, Object objValue) {
-        if (preference == mWeatherIconPack) {
+       /* if (preference == mWeatherIconPack) {
             String value = (String) objValue;
             Settings.System.putString(getContentResolver(),
                     Settings.System.OMNIJAWS_WEATHER_ICON_PACK, value);
             int valueIndex = mWeatherIconPack.findIndexOfValue(value);
             mWeatherIconPack.setSummary(mWeatherIconPack.getEntries()[valueIndex]);
-        }
+        }*/
         return true;
     }
 

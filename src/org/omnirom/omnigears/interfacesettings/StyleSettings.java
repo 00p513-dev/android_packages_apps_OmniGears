@@ -34,8 +34,8 @@ import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.search.BaseSearchIndexProvider;
-import com.android.settings.search.Indexable;
 
+import com.android.settingslib.search.Indexable;
 import com.android.settingslib.search.SearchIndexable;
 
 import org.omnirom.omnilib.preference.SystemSettingSwitchPreference;
@@ -81,7 +81,7 @@ public class StyleSettings extends SettingsPreferenceFragment implements
 
     @Override
     public int getMetricsCategory() {
-        return MetricsEvent.OMNI_SETTINGS;
+        return 1751;
     }
 
     @Override
@@ -89,7 +89,7 @@ public class StyleSettings extends SettingsPreferenceFragment implements
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.style_settings);
 
-        mWallBrowse = findPreference(CUSTOM_WALL_BROWSE);
+        /*mWallBrowse = findPreference(CUSTOM_WALL_BROWSE);
         mWallBrowse.setEnabled(isBrowseWallsAvailable());
 
         mThemeBrowse = findPreference(CUSTOM_THEME_BROWSE);
@@ -123,13 +123,13 @@ public class StyleSettings extends SettingsPreferenceFragment implements
 
         mHeaderProvider = (ListPreference) findPreference(CUSTOM_HEADER_PROVIDER);
         mHeaderProvider.setOnPreferenceChangeListener(this);
-
+*/
         mFileHeader = findPreference(FILE_HEADER_SELECT);
     }
 
     private void updateHeaderProviderSummary(boolean headerEnabled) {
         mDaylightHeaderPack.setSummary(getResources().getString(R.string.header_provider_disabled));
-        if (headerEnabled) {
+        /*if (headerEnabled) {
             String settingHeaderPackage = Settings.System.getString(getContentResolver(),
                     Settings.System.OMNI_STATUS_BAR_DAYLIGHT_HEADER_PACK);
             if (settingHeaderPackage != null) {
@@ -137,23 +137,23 @@ public class StyleSettings extends SettingsPreferenceFragment implements
                 mDaylightHeaderPack.setValueIndex(valueIndex >= 0 ? valueIndex : 0);
                 mDaylightHeaderPack.setSummary(mDaylightHeaderPack.getEntry());
             }
-        }
+        }*/
     }
 
     @Override
     public boolean onPreferenceTreeClick(Preference preference) {
-        if (preference == mFileHeader) {
+        /*if (preference == mFileHeader) {
             Intent intent = new Intent(Intent.ACTION_PICK);
             intent.setType("image/*");
             startActivityForResult(intent, REQUEST_PICK_IMAGE);
             return true;
-        }
+        }*/
         return super.onPreferenceTreeClick(preference);
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (preference == mDaylightHeaderPack) {
+        /*if (preference == mDaylightHeaderPack) {
             String value = (String) newValue;
             Settings.System.putString(getContentResolver(),
                     Settings.System.OMNI_STATUS_BAR_DAYLIGHT_HEADER_PACK, value);
@@ -174,7 +174,7 @@ public class StyleSettings extends SettingsPreferenceFragment implements
         } else if (preference == mHeaderEnabled) {
             Boolean headerEnabled = (Boolean) newValue;
             updateHeaderProviderSummary(headerEnabled);
-        }
+        }*/
         return true;
     }
 
@@ -235,18 +235,18 @@ public class StyleSettings extends SettingsPreferenceFragment implements
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent result) {
-        if (requestCode == REQUEST_PICK_IMAGE) {
+        /*if (requestCode == REQUEST_PICK_IMAGE) {
             if (resultCode != Activity.RESULT_OK) {
                 return;
             }
             final Uri imageUri = result.getData();
             Settings.System.putString(getContentResolver(), Settings.System.OMNI_STATUS_BAR_CUSTOM_HEADER_PROVIDER, "file");
             Settings.System.putString(getContentResolver(), Settings.System.OMNI_STATUS_BAR_FILE_HEADER_IMAGE, imageUri.toString());
-        }
+        }*/
     }
 
     private void updateEnablement() {
-        String providerName = Settings.System.getString(getContentResolver(),
+        /*String providerName = Settings.System.getString(getContentResolver(),
                 Settings.System.OMNI_STATUS_BAR_CUSTOM_HEADER_PROVIDER);
         if (providerName == null) {
             providerName = mDaylightHeaderProvider;
@@ -259,7 +259,7 @@ public class StyleSettings extends SettingsPreferenceFragment implements
         mHeaderProvider.setSummary(mHeaderProvider.getEntry());
         mDaylightHeaderPack.setEnabled(providerName.equals(mDaylightHeaderProvider));
         mFileHeader.setEnabled(providerName.equals(mFileHeaderProvider));
-        mHeaderBrowse.setEnabled(isBrowseHeaderAvailable() && providerName.equals(mFileHeaderProvider));
+        mHeaderBrowse.setEnabled(isBrowseHeaderAvailable() && providerName.equals(mFileHeaderProvider));*/
     }
 
     public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =

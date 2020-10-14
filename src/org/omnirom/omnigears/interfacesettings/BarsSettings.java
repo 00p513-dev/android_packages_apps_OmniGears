@@ -34,8 +34,8 @@ import androidx.preference.PreferenceCategory;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.R;
 import com.android.settings.search.BaseSearchIndexProvider;
-import com.android.settings.search.Indexable;
 
+import com.android.settingslib.search.Indexable;
 import com.android.settingslib.search.SearchIndexable;
 
 import org.omnirom.omnilib.preference.AppMultiSelectListPreference;
@@ -67,7 +67,7 @@ public class BarsSettings extends SettingsPreferenceFragment implements
 
     @Override
     public int getMetricsCategory() {
-        return MetricsEvent.OMNI_SETTINGS;
+        return 1751;
     }
 
     @Override
@@ -79,18 +79,18 @@ public class BarsSettings extends SettingsPreferenceFragment implements
 
         mQuickPulldown = (ListPreference) findPreference(QUICK_PULLDOWN);
         mQuickPulldown.setOnPreferenceChangeListener(this);
-        int quickPulldownValue = Settings.System.getInt(getContentResolver(),
+       /* int quickPulldownValue = Settings.System.getInt(getContentResolver(),
                 Settings.System.OMNI_STATUS_BAR_QUICK_QS_PULLDOWN, 0);
         mQuickPulldown.setValue(String.valueOf(quickPulldownValue));
-        updatePulldownSummary(quickPulldownValue);
+        updatePulldownSummary(quickPulldownValue);*/
 
         mQsPanelAlpha = (SeekBarPreference) findPreference(KEY_QS_PANEL_ALPHA);
-        int qsPanelAlpha = Settings.System.getInt(getContentResolver(),
+       /* int qsPanelAlpha = Settings.System.getInt(getContentResolver(),
                 Settings.System.OMNI_QS_PANEL_BG_ALPHA, 255);
         mQsPanelAlpha.setValue((int)(((double) qsPanelAlpha / 255) * 100));
-        mQsPanelAlpha.setOnPreferenceChangeListener(this);
+        mQsPanelAlpha.setOnPreferenceChangeListener(this);*/
 
-        final PreferenceCategory aspectRatioCategory =
+        /*final PreferenceCategory aspectRatioCategory =
                 (PreferenceCategory) getPreferenceScreen().findPreference(KEY_ASPECT_RATIO_CATEGORY);
         final boolean supportMaxAspectRatio = getResources().getBoolean(com.android.internal.R.bool.config_haveHigherAspectRatioScreen);
         if (!supportMaxAspectRatio) {
@@ -118,7 +118,7 @@ public class BarsSettings extends SettingsPreferenceFragment implements
             final Preference hideNotchPref =
                 (Preference) prefScreen.findPreference(KEY_HIDE_NOTCH);
             statusBarCategory.removePreference(hideNotchPref);
-        }
+        }*/
     }
 
     @Override
@@ -128,7 +128,7 @@ public class BarsSettings extends SettingsPreferenceFragment implements
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-         if (preference == mQuickPulldown) {
+         /*if (preference == mQuickPulldown) {
             int quickPulldownValue = Integer.valueOf((String) newValue);
             Settings.System.putInt(getContentResolver(), Settings.System.OMNI_STATUS_BAR_QUICK_QS_PULLDOWN,
                     quickPulldownValue);
@@ -152,13 +152,13 @@ public class BarsSettings extends SettingsPreferenceFragment implements
             Settings.System.putInt(getContentResolver(),
                     Settings.System.OMNI_QS_PANEL_BG_ALPHA, trueValue);
             return true;
-        }
+        }*/
         return false;
     }
 
     private void updatePulldownSummary(int value) {
         Resources res = getResources();
-        if (value == 0) {
+        /*if (value == 0) {
             // Quick Pulldown deactivated
             mQuickPulldown.setSummary(res.getString(R.string.quick_pulldown_off));
         } else if (value == 3) {
@@ -169,7 +169,7 @@ public class BarsSettings extends SettingsPreferenceFragment implements
                     ? R.string.quick_pulldown_left
                     : R.string.quick_pulldown_right);
             mQuickPulldown.setSummary(res.getString(R.string.quick_pulldown_summary, direction));
-       }
+       }*/
     }
 
     public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =

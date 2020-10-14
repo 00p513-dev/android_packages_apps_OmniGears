@@ -38,8 +38,8 @@ import org.omnirom.omnilib.preference.SeekBarPreference;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 
 import com.android.settings.search.BaseSearchIndexProvider;
-import com.android.settings.search.Indexable;
 
+import com.android.settingslib.search.Indexable;
 import com.android.settingslib.search.SearchIndexable;
 
 import java.util.List;
@@ -58,7 +58,7 @@ public class ButtonBrightnessSettings extends SettingsPreferenceFragment impleme
 
     @Override
     public int getMetricsCategory() {
-        return MetricsEvent.OMNI_SETTINGS;
+        return 1751;
     }
 
     public void onCreate(Bundle savedInstanceState) {
@@ -68,7 +68,7 @@ public class ButtonBrightnessSettings extends SettingsPreferenceFragment impleme
         PreferenceScreen prefSet = getPreferenceScreen();
         ContentResolver resolver = getContentResolver();
 
-        mManualButtonBrightness = (SeekBarPreference) findPreference(KEY_BUTTON_MANUAL_BRIGHTNESS_NEW);
+        /*mManualButtonBrightness = (SeekBarPreference) findPreference(KEY_BUTTON_MANUAL_BRIGHTNESS_NEW);
         final int customButtonBrightness = getResources().getInteger(
                 com.android.internal.R.integer.config_button_brightness_default);
         final int currentBrightness = Settings.System.getInt(resolver,
@@ -82,7 +82,7 @@ public class ButtonBrightnessSettings extends SettingsPreferenceFragment impleme
         int currentTimeout = Settings.System.getInt(resolver,
                         Settings.System.OMNI_BUTTON_BACKLIGHT_TIMEOUT, 0);
         mButtonTimoutBar.setValue(currentTimeout);
-        mButtonTimoutBar.setOnPreferenceChangeListener(this);
+        mButtonTimoutBar.setOnPreferenceChangeListener(this);*/
     }
 
     @Override
@@ -94,7 +94,7 @@ public class ButtonBrightnessSettings extends SettingsPreferenceFragment impleme
     public boolean onPreferenceChange(Preference preference, Object objValue) {
         final String key = preference.getKey();
 
-        if (preference == mButtonTimoutBar) {
+       /* if (preference == mButtonTimoutBar) {
             int buttonTimeout = (Integer) objValue;
             Settings.System.putInt(getContentResolver(),
                     Settings.System.OMNI_BUTTON_BACKLIGHT_TIMEOUT, buttonTimeout);
@@ -104,7 +104,7 @@ public class ButtonBrightnessSettings extends SettingsPreferenceFragment impleme
                     Settings.System.OMNI_CUSTOM_BUTTON_BRIGHTNESS, buttonBrightness);
         } else {
             return false;
-        }
+        }*/
         return true;
     }
 

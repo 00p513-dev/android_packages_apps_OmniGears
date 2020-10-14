@@ -29,10 +29,10 @@ import com.android.internal.util.omni.PackageUtils;
 import com.android.settings.R;
 import com.android.settings.dashboard.DashboardFragment;
 import com.android.settings.search.BaseSearchIndexProvider;
-import com.android.settings.search.Indexable;
 import com.android.settings.Utils;
 
 import com.android.settingslib.core.AbstractPreferenceController;
+import com.android.settingslib.search.Indexable;
 import com.android.settingslib.search.SearchIndexable;
 
 import java.util.ArrayList;
@@ -66,12 +66,12 @@ public class OmniDashboardFragment extends DashboardFragment {
                 getPreferenceScreen().removePreference(pref);
             }
         }
-        if (!getResources().getBoolean(com.android.internal.R.bool.config_intrusiveBatteryLed)) {
+        /*if (!getResources().getBoolean(com.android.internal.R.bool.config_intrusiveBatteryLed)) {
             Preference pref = getPreferenceScreen().findPreference(KEY_BATTERY_LIGHTS);
             if (pref != null) {
                 getPreferenceScreen().removePreference(pref);
             }
-        }
+        }*/
         if (!Utils.isVoiceCapable(getContext())) {
             Preference pref = getPreferenceScreen().findPreference(KEY_DIALER_SETTINGS);
             if (pref != null) {
@@ -104,7 +104,7 @@ public class OmniDashboardFragment extends DashboardFragment {
 
     @Override
     public int getMetricsCategory() {
-        return MetricsProto.MetricsEvent.OMNI_SETTINGS;
+        return 1751;
     }
 
     @Override
@@ -130,9 +130,9 @@ public class OmniDashboardFragment extends DashboardFragment {
                 @Override
                 public List<String> getNonIndexableKeys(Context context) {
                     ArrayList<String> result = new ArrayList<String>();
-                    if (!context.getResources().getBoolean(com.android.internal.R.bool.config_intrusiveBatteryLed)) {
+                    /*if (!context.getResources().getBoolean(com.android.internal.R.bool.config_intrusiveBatteryLed)) {
                         result.add(KEY_BATTERY_LIGHTS);
-                    }
+                    }*/
                     return result;
                 }
             };

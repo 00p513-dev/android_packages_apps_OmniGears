@@ -30,8 +30,8 @@ import com.android.internal.util.omni.PackageUtils;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.R;
 import com.android.settings.search.BaseSearchIndexProvider;
-import com.android.settings.search.Indexable;
 
+import com.android.settingslib.search.Indexable;
 import com.android.settingslib.search.SearchIndexable;
 
 import org.omnirom.omnilib.preference.SeekBarPreference;
@@ -53,7 +53,7 @@ public class LockscreenItemSettings extends SettingsPreferenceFragment implement
 
     @Override
     public int getMetricsCategory() {
-        return MetricsEvent.OMNI_SETTINGS;
+        return 1751;
     }
 
     @Override
@@ -61,7 +61,7 @@ public class LockscreenItemSettings extends SettingsPreferenceFragment implement
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.lockscreenitems);
 
-        mLockscreenMediaBlur = (SeekBarPreference) findPreference(KEY_LOCKSCREEN_MEDIA_BLUR);
+        /*mLockscreenMediaBlur = (SeekBarPreference) findPreference(KEY_LOCKSCREEN_MEDIA_BLUR);
         int value = Math.min(Settings.System.getInt(getContentResolver(),
                 Settings.System.OMNI_LOCKSCREEN_MEDIA_BLUR, 12), 25);
         mLockscreenMediaBlur.setValue(value);
@@ -72,7 +72,7 @@ public class LockscreenItemSettings extends SettingsPreferenceFragment implement
             if (pref != null) {
                 getPreferenceScreen().removePreference(pref);
             }
-        }
+        }*/
     }
 
     @Override
@@ -82,12 +82,12 @@ public class LockscreenItemSettings extends SettingsPreferenceFragment implement
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (preference == mLockscreenMediaBlur) {
+        /*if (preference == mLockscreenMediaBlur) {
             int value = (Integer) newValue;
             Settings.System.putInt(getContentResolver(),
                     Settings.System.OMNI_LOCKSCREEN_MEDIA_BLUR, value);
             return true;
-        }
+        }*/
         return true;
     }
 

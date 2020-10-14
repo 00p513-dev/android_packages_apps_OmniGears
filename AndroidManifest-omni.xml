@@ -4,7 +4,6 @@
 
     <application android:label="@string/settings_label"
             android:icon="@drawable/ic_launcher_settings"
-            android:theme="@style/Theme.Settings"
             android:hardwareAccelerated="true"
             android:requiredForAllUsers="true"
             android:supportsRtl="true"
@@ -36,17 +35,6 @@
             </intent-filter>
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
                 android:value="org.omnirom.omnigears.moresettings.OmniJawsSettings" />
-        </activity>
-        <activity
-            android:name=".Settings$SwipeToNotificationSuggestionActivity"
-            android:label="@string/fingerprint_swipe_for_notifications_title"
-            android:icon="@drawable/ic_settings_gestures">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.android.settings.suggested.category.GESTURE" />
-            </intent-filter>
-            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
-                       android:value="com.android.settings.gestures.SwipeToNotificationSettings"/>
         </activity>
         <activity android:name="Settings$StyleSettingsActivity"
                   android:label="@string/style_settings_title"

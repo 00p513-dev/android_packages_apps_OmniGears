@@ -41,10 +41,9 @@ import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 
 import com.android.settings.Utils;
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.dashboard.SummaryLoader;
 import com.android.settings.search.BaseSearchIndexProvider;
-import com.android.settings.search.Indexable;
 
+import com.android.settingslib.search.Indexable;
 import com.android.settingslib.search.SearchIndexable;
 
 import com.android.internal.util.omni.OmniSwitchConstants;
@@ -67,20 +66,20 @@ public class ButtonSettings extends SettingsPreferenceFragment implements OnPref
     private ListPreference mNavbarRecentsStyle;
 //    private SwitchPreference mEnableNavBar;
     private Preference mButtonLight;
-    
+
 
     @Override
     public int getMetricsCategory() {
-        return MetricsEvent.OMNI_SETTINGS;
+        return 1751;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        addPreferencesFromResource(R.xml.button_settings);
+        //addPreferencesFromResource(R.xml.button_settings);
 
-        final ContentResolver resolver = getContentResolver();
+        /*final ContentResolver resolver = getContentResolver();
         final PreferenceScreen prefScreen = getPreferenceScreen();
         final int deviceKeys = getResources().getInteger(
                 com.android.internal.R.integer.config_deviceHardwareKeys);
@@ -107,19 +106,19 @@ public class ButtonSettings extends SettingsPreferenceFragment implements OnPref
 //                Settings.System.OMNI_NAVIGATION_BAR_SHOW, showNavBarDefault ? 1 : 0) == 1;
 //        mEnableNavBar.setChecked(showNavBar);
 
-        mNavbarRecentsStyle = (ListPreference) findPreference(NAVIGATION_BAR_RECENTS_STYLE);
-        int recentsStyle = Settings.System.getInt(resolver,
+        mNavbarRecentsStyle = (ListPreference) findPreference(NAVIGATION_BAR_RECENTS_STYLE);*/
+        /*int recentsStyle = Settings.System.getInt(resolver,
                 Settings.System.OMNI_NAVIGATION_BAR_RECENTS, 0);
 
         mNavbarRecentsStyle.setValue(Integer.toString(recentsStyle));
         mNavbarRecentsStyle.setSummary(mNavbarRecentsStyle.getEntry());
-        mNavbarRecentsStyle.setOnPreferenceChangeListener(this);
+        mNavbarRecentsStyle.setOnPreferenceChangeListener(this);*/
 
-        boolean supportPowerButtonProxyCheck = getResources().getBoolean(com.android.internal.R.bool.config_proxiSensorWakupCheck);
+        /*boolean supportPowerButtonProxyCheck = getResources().getBoolean(com.android.internal.R.bool.config_proxiSensorWakupCheck);
         SwitchPreference proxyCheckPreference = (SwitchPreference) findPreference(SYSTEM_PROXI_CHECK_ENABLED);
         if (!DeviceUtils.deviceSupportsProximitySensor(getActivity()) || !supportPowerButtonProxyCheck) {
             powerCategory.removePreference(proxyCheckPreference);
-        }
+        }*/
     }
 
     @Override
@@ -143,9 +142,9 @@ public class ButtonSettings extends SettingsPreferenceFragment implements OnPref
                     doOmniSwitchConfig();
                 }
             }
-            int index = mNavbarRecentsStyle.findIndexOfValue((String) newValue);
+           /* int index = mNavbarRecentsStyle.findIndexOfValue((String) newValue);
             mNavbarRecentsStyle.setSummary(mNavbarRecentsStyle.getEntries()[index]);
-            Settings.System.putInt(getContentResolver(), Settings.System.OMNI_NAVIGATION_BAR_RECENTS, value);
+            Settings.System.putInt(getContentResolver(), Settings.System.OMNI_NAVIGATION_BAR_RECENTS, value);*/
             return true;
         }
         return false;
