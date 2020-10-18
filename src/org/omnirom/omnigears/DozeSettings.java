@@ -83,9 +83,9 @@ public class DozeSettings extends SettingsPreferenceFragment implements
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.doze_settings);
 
-        /*mDefaultColor = getResources().getInteger(
+        mDefaultColor = getResources().getInteger(
                 com.android.internal.R.integer.config_ambientNotificationDefaultColor);
-        int defaultDoze = getResources().getInteger(
+/*        int defaultDoze = getResources().getInteger(
                 com.android.internal.R.integer.config_screenBrightnessDoze);
         int defaultPulse = getResources().getInteger(
                 com.android.internal.R.integer.config_screenBrightnessPulse);
@@ -104,7 +104,7 @@ public class DozeSettings extends SettingsPreferenceFragment implements
                 Settings.System.OMNI_DOZE_BRIGHTNESS, defaultDoze);
         mDozeBrightness.setValue(value);
         mDozeBrightness.setOnPreferenceChangeListener(this);
-
+*/
         setHasOptionsMenu(true);
 
         mPulseLightColorPref = (ColorSelectPreference) findPreference(PULSE_COLOR_PREF);
@@ -114,15 +114,15 @@ public class DozeSettings extends SettingsPreferenceFragment implements
         mPulseLightColorPref.setOnPreferenceChangeListener(this);
 
         mPulseTimeout = (ListPreference) findPreference(PULSE_TIMEOUT_PREF);
-        value = Settings.System.getInt(getContentResolver(),
+        int value = Settings.System.getInt(getContentResolver(),
                 Settings.System.OMNI_AOD_NOTIFICATION_PULSE_TIMEOUT, 0);
 
         mPulseTimeout.setValue(Integer.toString(value));
         mPulseTimeout.setSummary(mPulseTimeout.getEntry());
         mPulseTimeout.setOnPreferenceChangeListener(this);
 
-        mColorMode = (ListPreference) findPreference(PULSE_COLOR_MODE_PREF);*/
-        /*boolean colorModeAutomatic = Settings.System.getInt(getContentResolver(),
+        mColorMode = (ListPreference) findPreference(PULSE_COLOR_MODE_PREF);
+        boolean colorModeAutomatic = Settings.System.getInt(getContentResolver(),
                 Settings.System.OMNI_NOTIFICATION_PULSE_COLOR_AUTOMATIC, 0) != 0;
         boolean colorModeAccent = Settings.System.getInt(getContentResolver(),
                 Settings.System.OMNI_NOTIFICATION_PULSE_ACCENT, 0) != 0;
@@ -136,7 +136,7 @@ public class DozeSettings extends SettingsPreferenceFragment implements
 
         mColorMode.setValue(Integer.toString(value));
         mColorMode.setSummary(mColorMode.getEntry());
-        mColorMode.setOnPreferenceChangeListener(this);*/
+        mColorMode.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -158,9 +158,9 @@ public class DozeSettings extends SettingsPreferenceFragment implements
     }
 
     protected void resetToDefaults() {
-        /*Settings.System.putInt(getContentResolver(), Settings.System.OMNI_NOTIFICATION_PULSE_COLOR,
+        Settings.System.putInt(getContentResolver(), Settings.System.OMNI_NOTIFICATION_PULSE_COLOR,
                 mDefaultColor);
-        mPulseLightColorPref.setColor(mDefaultColor);*/
+        mPulseLightColorPref.setColor(mDefaultColor);
     }
 
     @Override
@@ -170,7 +170,7 @@ public class DozeSettings extends SettingsPreferenceFragment implements
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        /*if (preference == mPulseBrightness) {
+/*        if (preference == mPulseBrightness) {
             int value = (Integer) newValue;
             Settings.System.putInt(getContentResolver(),
                     Settings.System.OMNI_PULSE_BRIGHTNESS, value);
@@ -180,7 +180,7 @@ public class DozeSettings extends SettingsPreferenceFragment implements
             Settings.System.putInt(getContentResolver(),
                     Settings.System.OMNI_DOZE_BRIGHTNESS, value);
             return true;
-        } else if (preference == mPulseLightColorPref) {
+*/        if (preference == mPulseLightColorPref) {
             ColorSelectPreference lightPref = (ColorSelectPreference) preference;
             Settings.System.putInt(getContentResolver(),
                      Settings.System.OMNI_NOTIFICATION_PULSE_COLOR, lightPref.getColor());
@@ -215,7 +215,7 @@ public class DozeSettings extends SettingsPreferenceFragment implements
                         Settings.System.OMNI_NOTIFICATION_PULSE_ACCENT, 0);
             }
             return true;
-        }*/
+        }
         return false;
     }
 
