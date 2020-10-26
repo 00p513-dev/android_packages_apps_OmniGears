@@ -21,7 +21,8 @@
     android:height="48dp"
     android:viewportWidth="512.000000"
     android:viewportHeight="512.000000"
-    android:tint="#ffffff">
+    android:tint="?android:attr/colorPrimary">
+
     <group
         android:translateY="512.000000"
         android:scaleX="0.100000"
