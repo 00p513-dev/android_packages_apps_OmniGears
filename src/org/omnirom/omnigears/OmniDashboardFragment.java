@@ -25,6 +25,7 @@ import androidx.preference.Preference;
 import android.provider.SearchIndexableResource;
 
 import com.android.internal.logging.nano.MetricsProto;
+import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.internal.util.omni.PackageUtils;
 import com.android.settings.R;
 import com.android.settings.dashboard.DashboardFragment;
@@ -109,15 +110,11 @@ public class OmniDashboardFragment extends DashboardFragment {
         if (pref != null) {
             getPreferenceScreen().removePreference(pref);
         }
-        pref = getPreferenceScreen().findPreference("button_settings");
-        if (pref != null) {
-            getPreferenceScreen().removePreference(pref);
-        }
     }
 
     @Override
     public int getMetricsCategory() {
-        return 1751;
+        return MetricsEvent.OMNI_SETTINGS;
     }
 
     @Override

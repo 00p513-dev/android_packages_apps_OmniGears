@@ -14,11 +14,13 @@
   You should have received a copy of the GNU General Public License
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  -->
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+<PreferenceScreen
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:settings="http://schemas.android.com/apk/res-auto"
         android:key="button_settings"
         android:title="@string/button_settings_title" >
 
-    <PreferenceCategory
+    <!--<PreferenceCategory
         android:key="button_volume_keys"
         android:title="@string/button_volume_keys_title" >
 
@@ -27,18 +29,12 @@
             android:title="@string/volume_button_music_control_title"
             android:summary="@string/volume_button_music_control_summary"
             android:defaultValue="false" />
-    </PreferenceCategory>
+    </PreferenceCategory>-->
 
-    <PreferenceCategory
+    <!--<PreferenceCategory
         android:key="button_keys"
         android:title="@string/button_keys_title" >
-<!--
-        <SwitchPreference
-            android:key="navigation_bar_show"
-            android:title="@string/navigation_bar_show_title"
-            android:summary="@string/navigation_bar_show_summary"
-            android:persistent="false" />
--->
+
         <Preference
             android:key="button_brightness"
             android:title="@string/button_backlight_title"
@@ -46,7 +42,7 @@
             android:persistent="false"
             android:fragment="org.omnirom.omnigears.ButtonBrightnessSettings" />
 
-    </PreferenceCategory>
+    </PreferenceCategory>-->
 
     <PreferenceCategory
         android:key="button_power"
@@ -58,11 +54,11 @@
             android:summary="@string/global_actions_advanced_reboot_summary_new"
             android:defaultValue="false" />
 
-        <org.omnirom.omnilib.preference.SystemSettingSwitchPreference
+        <!--<org.omnirom.omnilib.preference.SystemSettingSwitchPreference
             android:key="long_press_power_torch"
             android:title="@string/long_press_power_torch_title"
             android:summary="@string/long_press_power_torch_summary"
-            android:defaultValue="false" />
+        android:defaultValue="false" />-->
 
         <org.omnirom.omnilib.preference.SystemSettingSwitchPreference
             android:key="system_proxi_check_enabled"
