@@ -70,7 +70,7 @@ public class DozeSettings extends SettingsPreferenceFragment implements
 
     @Override
     public int getMetricsCategory() {
-        return 1751;
+        return MetricsEvent.OMNI_SETTINGS;
     }
 
     @Override

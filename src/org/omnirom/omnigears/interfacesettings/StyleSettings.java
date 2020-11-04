@@ -89,13 +89,13 @@ public class StyleSettings extends SettingsPreferenceFragment implements
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.style_settings);
 
-        /*mWallBrowse = findPreference(CUSTOM_WALL_BROWSE);
+        mWallBrowse = findPreference(CUSTOM_WALL_BROWSE);
         mWallBrowse.setEnabled(isBrowseWallsAvailable());
 
         mThemeBrowse = findPreference(CUSTOM_THEME_BROWSE);
         mThemeBrowse.setEnabled(isBrowseThemesAvailable());
 
-        mDaylightHeaderProvider = getResources().getString(R.string.daylight_header_provider);
+        /*mDaylightHeaderProvider = getResources().getString(R.string.daylight_header_provider);
         mFileHeaderProvider = getResources().getString(R.string.file_header_provider);
         mHeaderBrowse = findPreference(CUSTOM_HEADER_BROWSE);
 
@@ -123,13 +123,13 @@ public class StyleSettings extends SettingsPreferenceFragment implements
 
         mHeaderProvider = (ListPreference) findPreference(CUSTOM_HEADER_PROVIDER);
         mHeaderProvider.setOnPreferenceChangeListener(this);
-*/
-        mFileHeader = findPreference(FILE_HEADER_SELECT);
+
+        mFileHeader = findPreference(FILE_HEADER_SELECT);*/
     }
 
-    private void updateHeaderProviderSummary(boolean headerEnabled) {
+    /*private void updateHeaderProviderSummary(boolean headerEnabled) {
         mDaylightHeaderPack.setSummary(getResources().getString(R.string.header_provider_disabled));
-        /*if (headerEnabled) {
+        if (headerEnabled) {
             String settingHeaderPackage = Settings.System.getString(getContentResolver(),
                     Settings.System.OMNI_STATUS_BAR_DAYLIGHT_HEADER_PACK);
             if (settingHeaderPackage != null) {
@@ -137,8 +137,8 @@ public class StyleSettings extends SettingsPreferenceFragment implements
                 mDaylightHeaderPack.setValueIndex(valueIndex >= 0 ? valueIndex : 0);
                 mDaylightHeaderPack.setSummary(mDaylightHeaderPack.getEntry());
             }
-        }*/
-    }
+        }
+    }*/
 
     @Override
     public boolean onPreferenceTreeClick(Preference preference) {

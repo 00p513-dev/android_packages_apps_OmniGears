@@ -66,12 +66,12 @@ public class OmniDashboardFragment extends DashboardFragment {
                 getPreferenceScreen().removePreference(pref);
             }
         }
-        /*if (!getResources().getBoolean(com.android.internal.R.bool.config_intrusiveBatteryLed)) {
+        if (true  /*!getResources().getBoolean(com.android.internal.R.bool.config_intrusiveBatteryLed)*/) {
             Preference pref = getPreferenceScreen().findPreference(KEY_BATTERY_LIGHTS);
             if (pref != null) {
                 getPreferenceScreen().removePreference(pref);
             }
-        }*/
+        }
         if (!Utils.isVoiceCapable(getContext())) {
             Preference pref = getPreferenceScreen().findPreference(KEY_DIALER_SETTINGS);
             if (pref != null) {
@@ -79,7 +79,7 @@ public class OmniDashboardFragment extends DashboardFragment {
             }
         }
 
-        if (!PackageUtils.isAvailableApp(WEATHER_SERVICE_PACKAGE, getContext())) {
+        if (true /*!PackageUtils.isAvailableApp(WEATHER_SERVICE_PACKAGE, getContext())*/) {
             Preference pref = getPreferenceScreen().findPreference(KEY_WEATHER_SETTINGS);
             if (pref != null) {
                 getPreferenceScreen().removePreference(pref);
@@ -99,6 +99,19 @@ public class OmniDashboardFragment extends DashboardFragment {
             if (pref != null) {
                 getPreferenceScreen().removePreference(pref);
             }
+        }
+
+        Preference pref = getPreferenceScreen().findPreference("bars_settings");
+        if (pref != null) {
+            getPreferenceScreen().removePreference(pref);
+        }
+        pref = getPreferenceScreen().findPreference("lockscreen_settings");
+        if (pref != null) {
+            getPreferenceScreen().removePreference(pref);
+        }
+        pref = getPreferenceScreen().findPreference("button_settings");
+        if (pref != null) {
+            getPreferenceScreen().removePreference(pref);
         }
     }
 

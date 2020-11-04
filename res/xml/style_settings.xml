@@ -45,7 +45,7 @@
 
     </PreferenceCategory>
 
-    <PreferenceCategory
+    <!--<PreferenceCategory
         android:key="category_custom_header"
         android:title="@string/custom_header_title">
 
@@ -97,5 +97,5 @@
             android:persistent="false"
             android:dependency="status_bar_custom_header" />
 
-    </PreferenceCategory>
+    </PreferenceCategory>-->
 </PreferenceScreen>
