@@ -63,7 +63,7 @@ public class OmniJawsSettings extends SettingsPreferenceFragment implements
 
     @Override
     public int getMetricsCategory() {
-        return 1751;
+        return MetricsEvent.OMNI_SETTINGS;
     }
 
     @Override
@@ -72,7 +72,7 @@ public class OmniJawsSettings extends SettingsPreferenceFragment implements
         addPreferencesFromResource(R.xml.omnijaws_settings);
         final PreferenceScreen prefScreen = getPreferenceScreen();
 
-       /* mWeatherCategory = (PreferenceCategory) prefScreen.findPreference(CATEGORY_WEATHER);
+        mWeatherCategory = (PreferenceCategory) prefScreen.findPreference(CATEGORY_WEATHER);
         if (mWeatherCategory != null && !isOmniJawsServiceInstalled()) {
             prefScreen.removePreference(mWeatherCategory);
         } else {
@@ -100,17 +100,17 @@ public class OmniJawsSettings extends SettingsPreferenceFragment implements
             mWeatherIconPack.setValueIndex(valueIndex >= 0 ? valueIndex : 0);
             mWeatherIconPack.setSummary(mWeatherIconPack.getEntry());
             mWeatherIconPack.setOnPreferenceChangeListener(this);
-        }*/
+        }
     }
 
     public boolean onPreferenceChange(Preference preference, Object objValue) {
-       /* if (preference == mWeatherIconPack) {
+        if (preference == mWeatherIconPack) {
             String value = (String) objValue;
             Settings.System.putString(getContentResolver(),
                     Settings.System.OMNIJAWS_WEATHER_ICON_PACK, value);
             int valueIndex = mWeatherIconPack.findIndexOfValue(value);
             mWeatherIconPack.setSummary(mWeatherIconPack.getEntries()[valueIndex]);
-        }*/
+        }
         return true;
     }
 

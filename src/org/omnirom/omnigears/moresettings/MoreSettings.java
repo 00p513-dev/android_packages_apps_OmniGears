@@ -53,7 +53,7 @@ public class MoreSettings extends SettingsPreferenceFragment implements OnPrefer
 
     @Override
     public int getMetricsCategory() {
-        return 1751;
+        return MetricsEvent.OMNI_SETTINGS;
     }
 
     @Override
