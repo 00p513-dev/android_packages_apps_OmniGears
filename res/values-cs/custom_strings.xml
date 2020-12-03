@@ -761,4 +761,6 @@
     <string name="ambient_notification_light_color_mode_automatic">Barva oznámení</string>
     <string name="ambient_notification_light_color_mode_accent">Systémová barva zvýraznění</string>
     <string name="ambient_notification_light_color_mode_custom">Vlastní barva</string>
+    <string name="doze_brightness_force_title">Vynutit úroveň jasu</string>
+    <string name="doze_brightness_force_summary">Nastavte na tyto hodnoty nezávisle na aktuální hodnotě</string>
 </resources>

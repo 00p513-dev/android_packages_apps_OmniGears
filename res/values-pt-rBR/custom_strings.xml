@@ -761,4 +761,6 @@
     <string name="ambient_notification_light_color_mode_automatic">Cor da notificação</string>
     <string name="ambient_notification_light_color_mode_accent">Cor de destaque do sistema</string>
     <string name="ambient_notification_light_color_mode_custom">Cor personalizada</string>
+    <string name="doze_brightness_force_title">Forçar valor de brilho</string>
+    <string name="doze_brightness_force_summary">Defina com esses valores independentemente do valor atual</string>
 </resources>

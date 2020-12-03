@@ -758,4 +758,6 @@
     <string name="ambient_notification_light_color_mode_automatic">Benachrichtigungsfarbe</string>
     <string name="ambient_notification_light_color_mode_accent">System-Akzentfarbe</string>
     <string name="ambient_notification_light_color_mode_custom">Benutzerdefinierte Farbe</string>
+    <string name="doze_brightness_force_title">Helligkeitswert erzwingen</string>
+    <string name="doze_brightness_force_summary">Setze diese Werte unabhängig vom aktuellen Wert</string>
 </resources>

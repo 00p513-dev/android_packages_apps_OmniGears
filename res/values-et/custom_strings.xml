@@ -465,6 +465,7 @@
     <string name="volume_button_force_media_summary">Meedia helitugevust muudetakse vaikimisi</string>
     <string name="status_bar_logo_title">Olekuriba logo</string>
     <string name="status_bar_logo_summary">Tunne uhkust</string>
+    <string name="doze_settings_title">Ambientne ekraan</string>
     <string name="DESC_LOCATING_TIMEOUT">Aeg, kui kaua ootame, proovimaks saada head asukohamäärangut enne eemalolekurežiimi minekut</string>
     <string name="DESC_LOCATION_ACCURACY">Soovitud maksimaalne täpsus (meetrites), mille järgi peame asukohta heaks enne eemalolekurežiimi minemist. Proovime saada vähemalt nii head täpsusmäärangut või kuni locating_to aegub</string>
     <string name="DESC_MAX_IDLE_PENDING_TIMEOUT">Maksimaalne oodatav eemaloleku ajalõpp (töötamise aeg), mida saame kasutada</string>
@@ -535,6 +536,8 @@
     <string name="screen_off_animation_crt">Kineskoop</string>
     <string name="screen_off_animation_scale">Skaleeri</string>
     <string name="screen_off_animation_title">Ekraani väljalülitamise animatsioon</string>
+    <string name="theme_select_title">Teemad</string>
+    <string name="theme_select_summary">Sirvi ja vali installitud teemasid</string>
     <string name="keys_action_notifications">Teated</string>
     <string name="battery_style_text">Ainult tekst</string>
     <string name="battery_style_default">Vaikimisi</string>
@@ -711,8 +714,25 @@
     <!-- Fingerprint -->
     <string name="fingerprint_settings_title">Sõrmejälg</string>
     <string name="fingerprint_category_custom_icon">Kohandatud ikoon</string>
+    <string name="fingerprint_custom_icon_select">Vali kohandatud fail</string>
+    <string name="ambient_pulse_brightness_title">Märguande eredus</string>
+    <string name="ambient_pulse_brightness_summary">Vali eredustase uute märguannete kuvamiseks</string>
+    <string name="ambient_doze_brightness_title">Alati-sees eredus</string>
+    <string name="ambient_doze_brightness_summary">Määra alati-sees kasutatav eredus</string>
     <!-- doze on charge -->
+    <string name="doze_on_charge_title">Kuva alati-sees laadimise ajal</string>
     <string name="doze_on_charge_summary">Ärata ekraan laadimise ajal</string>
     <!-- lock screen media blur -->
     <string name="lockscreen_media_blur_title">Meedia kaanepildi udutase</string>
+    <string name="omni_remote_title">OmniRemote</string>
+    <string name="ambient_notification_light_enabled_title">Kuva alati-sees puhul</string>
+    <string name="ambient_brigthness_category_title">Ekraani eredus</string>
+    <string name="ambient_notification_light_color_title">Kohandatud värv</string>
+    <string name="entry_infinite">Lõpmatu</string>
+    <string name="entry_five_minute">5 minutit</string>
+    <string name="entry_ten_minute">10 minutit</string>
+    <string name="entry_thirty_minute">30 minutit</string>
+    <string name="entry_sixty_minute">60 minutit</string>
+    <string name="entry_fifteen_minute">15 minutit</string>
+    <string name="ambient_notification_light_color_mode_custom">Kohandatud värv</string>
 </resources>

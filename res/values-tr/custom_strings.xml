@@ -231,7 +231,7 @@
     <string name="unit_percent">\u0025</string>
     <string name="static_header_provider_title">Statik görüntü</string>
     <string name="daylight_header_provider_title">Görüntü koleksiyonu</string>
-    <string name="custom_header_provider_title">Başlık tedârikçisi</string>
+    <string name="custom_header_provider_title">Başlık sağlayıcısı</string>
     <string name="custom_header_pick_title">Başlık görüntüsünü seçin</string>
     <string name="custom_header_pick_summary">Yerel veyâ uzak bir görüntü seçin</string>
     <string name="style_enabled_summary">Özel başlık görüntüsü AÇIK</string>
@@ -242,7 +242,7 @@
     <string name="file_header_select_summary">Görüntüyü depolamadan seçin</string>
     <string name="file_header_provider_title">Tek görüntü</string>
     <!-- Network traffic -->
-    <string name="network_traffic_title">Şebeke trafiği</string>
+    <string name="network_traffic_title">Ağ trafiği</string>
     <string name="network_traffic_summary">Durum çubuğunda trafik monitörü</string>
     <string name="show_network_traffic_state">Trafik cinsini göster</string>
     <string name="show_network_traffic_unit">Gösterme birimi</string>
@@ -262,7 +262,7 @@
     <string name="network_traffic_autohide_threshold">Hareketsizlik eşiği</string>
     <string name="network_traffic_enable_title">Devreye sok</string>
     <!-- captive portal - connectivity check -->
-    <string name="captive_portal_mode_title">Şebekenin bağlanabilirliğini yoklama</string>
+    <string name="captive_portal_mode_title">Ağ bağlanabilirliğini yoklama</string>
     <string name="captive_portal_mode_summary">Kısıtlama portalı tesbitini devreye sokar</string>
     <!-- statusbar brightness -->
     <string name="status_bar_brightness_control_title">Parlaklık kontrolü</string>
@@ -465,7 +465,7 @@
     <string name="volume_button_force_media_summary">Medya sesi seviyesi standart olarak değiştirilecektir</string>
     <string name="status_bar_logo_title">Durum çubuğu işâreti</string>
     <string name="status_bar_logo_summary">İlâve tarz</string>
-    <string name="doze_settings_title">Fa\'âl ekran</string>
+    <string name="doze_settings_title">Ortam ekranı</string>
     <string name="DESC_INACTIVE_TIMEOUT">Bu müddetten sonra cihazın tek başına bırakılıp bırakılmadığını anlamak için hareket sensörüne bakmaya başlarız. Bunu cihaz gayrî fa’âl olduktan sonra derhâl yapmıyoruz çünkü hareket sensörünü her ekran kapandığında çalıştırmak istemiyoruz</string>
     <string name="DESC_SENSING_TIMEOUT">Bu süre zarfında AnyMotion\'dan bir geri dönüş almazsak, STATE_SENSING hâlini STATE_INACTIVE olarak değiştireceğiz, ve STATE_SENSING hâlinde değilken gelen AnyMotion geri dönüşlerini görmezden geleceğiz</string>
     <string name="DESC_LOCATING_TIMEOUT">Bu, boşta kalma moduna geçmeden evvel iyi bir konum düzeltmesi almaya çalışmak için ne kadar müddet bekleyeceğimizdir</string>
@@ -644,7 +644,7 @@
     <string name="hide_lockscreen_icon_summary">Kilit ekranı simgesinin görünürlüğünü değiştirin</string>
     <string name="lockscreen_weather_title">Hava durumunu göster</string>
     <string name="lockscreen_weather_summary">Mevcut hava durumunu ve sıcaklığı gösterir</string>
-    <string name="lockscreen_items_aod_info_title">Bu görünürlük ayarı fa\'âl ekran için de geçerlidir</string>
+    <string name="lockscreen_items_aod_info_title">Bu görünürlük ayarı ortam ekranı için de geçerlidir</string>
     <string name="system_proxi_check_enabled_title">Yakınlık yoklaması</string>
     <string name="system_proxi_check_enabled_summary">Güç ve ses seviyesi düğmesine dair uyandırma olaylarını ele almadan evvel yakınlık sensörünü yoklar</string>
     <string name="aspect_ratio_apps_enabled_title">Ölçeklemeyi devreye sok</string>
@@ -761,4 +761,6 @@
     <string name="ambient_notification_light_color_mode_automatic">Bildirim rengi</string>
     <string name="ambient_notification_light_color_mode_accent">Sistemin ara rengi</string>
     <string name="ambient_notification_light_color_mode_custom">Özel renk</string>
+    <string name="doze_brightness_force_title">Mecburi parlaklık değeri</string>
+    <string name="doze_brightness_force_summary">Parlaklığı mevcut değerden bağımsız bir değere ayarlayın</string>
 </resources>
