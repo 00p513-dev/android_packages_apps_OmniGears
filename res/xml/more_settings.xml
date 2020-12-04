@@ -27,7 +27,7 @@
                 android:key="recents_tasks_visible_disable"
                 android:title="@string/recents_tasks_visible_disable_title"
                 android:summary="@string/recents_tasks_visible_disable_summary"
-                android:defaultValue="false" />
+            android:defaultValue="false" />-->
 
             <org.omnirom.omnilib.preference.SystemSettingSwitchPreference
                 android:key="show_cpu_overlay"
@@ -35,7 +35,7 @@
                 android:summary="@string/show_cpu_summary"
                 android:defaultValue="false" />
 
-            <org.omnirom.omnilib.preference.GlobalSettingSwitchPreference
+            <!--<org.omnirom.omnilib.preference.GlobalSettingSwitchPreference
                 android:key="captive_portal_mode"
                 android:title="@string/captive_portal_mode_title"
                 android:summary="@string/captive_portal_mode_summary"
