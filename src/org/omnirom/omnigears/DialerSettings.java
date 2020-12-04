@@ -24,6 +24,7 @@ import android.provider.SearchIndexableResource;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.Utils;
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.settings.search.BaseSearchIndexProvider;
@@ -40,7 +41,7 @@ public class DialerSettings extends SettingsPreferenceFragment implements Indexa
 
     @Override
     public int getMetricsCategory() {
-        return 1751;
+        return MetricsEvent.OMNI_SETTINGS;
     }
 
     @Override
@@ -58,9 +59,11 @@ public class DialerSettings extends SettingsPreferenceFragment implements Indexa
                     ArrayList<SearchIndexableResource> result =
                             new ArrayList<SearchIndexableResource>();
 
-                    SearchIndexableResource sir = new SearchIndexableResource(context);
-                    sir.xmlResId = R.xml.dialer_settings;
-                    result.add(sir);
+                    if (Utils.isVoiceCapable(context)) {
+                        SearchIndexableResource sir = new SearchIndexableResource(context);
+                        sir.xmlResId = R.xml.dialer_settings;
+                        result.add(sir);
+                    }
 
                     return result;
                 }

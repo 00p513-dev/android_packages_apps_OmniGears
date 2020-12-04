@@ -27,6 +27,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.BitmapDrawable;
+import android.hardware.fingerprint.FingerprintManager;
 import android.net.TrafficStats;
 import android.net.Uri;
 import android.os.Bundle;
@@ -71,7 +72,7 @@ public class FingerprintSettings extends SettingsPreferenceFragment implements
 
     @Override
     public int getMetricsCategory() {
-        return 1751;
+        return MetricsEvent.OMNI_SETTINGS;
     }
 
     @Override
@@ -161,9 +162,12 @@ public class FingerprintSettings extends SettingsPreferenceFragment implements
                 ArrayList < SearchIndexableResource > result =
                     new ArrayList < SearchIndexableResource > ();
 
-                SearchIndexableResource sir = new SearchIndexableResource(context);
-                sir.xmlResId = R.xml.fingerprint_settings;
-                result.add(sir);
+                FingerprintManager fingerprintManager = (FingerprintManager) context.getSystemService(Context.FINGERPRINT_SERVICE);
+                if (fingerprintManager != null && fingerprintManager.isHardwareDetected()){
+                    SearchIndexableResource sir = new SearchIndexableResource(context);
+                    sir.xmlResId = R.xml.fingerprint_settings;
+                    result.add(sir);
+                }
 
                 return result;
             }
