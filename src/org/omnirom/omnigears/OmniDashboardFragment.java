@@ -80,7 +80,7 @@ public class OmniDashboardFragment extends DashboardFragment {
             }
         }
 
-        if (true /*!PackageUtils.isAvailableApp(WEATHER_SERVICE_PACKAGE, getContext())*/) {
+        if (!PackageUtils.isAvailableApp(WEATHER_SERVICE_PACKAGE, getContext())) {
             Preference pref = getPreferenceScreen().findPreference(KEY_WEATHER_SETTINGS);
             if (pref != null) {
                 getPreferenceScreen().removePreference(pref);
@@ -103,10 +103,6 @@ public class OmniDashboardFragment extends DashboardFragment {
         }
 
         Preference pref = getPreferenceScreen().findPreference("bars_settings");
-        if (pref != null) {
-            getPreferenceScreen().removePreference(pref);
-        }
-        pref = getPreferenceScreen().findPreference("lockscreen_settings");
         if (pref != null) {
             getPreferenceScreen().removePreference(pref);
         }
