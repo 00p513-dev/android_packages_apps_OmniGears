@@ -56,19 +56,11 @@ public class OmniDashboardFragment extends DashboardFragment {
     private static final String PACKAGE_DEVICE_PARTS = "org.omnirom.device";
     private static final String WEATHER_SERVICE_PACKAGE = "org.omnirom.omnijaws";
 
-    private FingerprintManager mFingerprintManager;
-
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         super.onCreatePreferences(savedInstanceState, rootKey);
         if (!PackageUtils.isAvailableApp(PACKAGE_DEVICE_PARTS, getContext())) {
             Preference pref = getPreferenceScreen().findPreference(KEY_DEVICE_PARTS);
-            if (pref != null) {
-                getPreferenceScreen().removePreference(pref);
-            }
-        }
-        if (true  /*!getResources().getBoolean(com.android.internal.R.bool.config_intrusiveBatteryLed)*/) {
-            Preference pref = getPreferenceScreen().findPreference(KEY_BATTERY_LIGHTS);
             if (pref != null) {
                 getPreferenceScreen().removePreference(pref);
             }
@@ -87,8 +79,8 @@ public class OmniDashboardFragment extends DashboardFragment {
             }
         }
 
-        mFingerprintManager = (FingerprintManager) getActivity().getSystemService(Context.FINGERPRINT_SERVICE);
-        if (mFingerprintManager == null || !mFingerprintManager.isHardwareDetected()){
+        FingerprintManager fingerprintManager = (FingerprintManager) getActivity().getSystemService(Context.FINGERPRINT_SERVICE);
+        if (fingerprintManager == null || !fingerprintManager.isHardwareDetected()){
             Preference pref = getPreferenceScreen().findPreference(KEY_FINGERPRINT_SETTINGS);
             if (pref != null) {
                 getPreferenceScreen().removePreference(pref);
@@ -100,11 +92,6 @@ public class OmniDashboardFragment extends DashboardFragment {
             if (pref != null) {
                 getPreferenceScreen().removePreference(pref);
             }
-        }
-
-        Preference pref = getPreferenceScreen().findPreference("bars_settings");
-        if (pref != null) {
-            getPreferenceScreen().removePreference(pref);
         }
     }
 
@@ -136,9 +123,22 @@ public class OmniDashboardFragment extends DashboardFragment {
                 @Override
                 public List<String> getNonIndexableKeys(Context context) {
                     ArrayList<String> result = new ArrayList<String>();
-                    /*if (!context.getResources().getBoolean(com.android.internal.R.bool.config_intrusiveBatteryLed)) {
-                        result.add(KEY_BATTERY_LIGHTS);
-                    }*/
+                    if (!Utils.isVoiceCapable(context)) {
+                        result.add(KEY_DIALER_SETTINGS);
+                    }
+                    FingerprintManager fingerprintManager = (FingerprintManager) context.getSystemService(Context.FINGERPRINT_SERVICE);
+                    if (fingerprintManager == null || !fingerprintManager.isHardwareDetected()){
+                        result.add(KEY_FINGERPRINT_SETTINGS);
+                    }
+                    if (!context.getResources().getBoolean(com.android.internal.R.bool.config_dozeAlwaysOnDisplayAvailable)) {
+                        result.add(KEY_AMBIENT_DISPLAY);
+                    }
+                    if (!PackageUtils.isAvailableApp(WEATHER_SERVICE_PACKAGE, context)) {
+                        result.add(KEY_WEATHER_SETTINGS);
+                    }
+                    if (!PackageUtils.isAvailableApp(PACKAGE_DEVICE_PARTS, context)) {
+                        result.add(KEY_DEVICE_PARTS);
+                    }
                     return result;
                 }
             };
