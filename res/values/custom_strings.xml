@@ -882,4 +882,6 @@
     <string name="ambient_notification_light_color_mode_custom">Custom color</string>
     <string name="doze_brightness_force_title">Force brightness value</string>
     <string name="doze_brightness_force_summary">Set to those values independent of the current value</string>
+    <string name="status_bar_bt_battery_title">Show Bluetooth battery level</string>
+    <string name="status_bar_bt_battery_summary">For supported devices show battery level also in status bar</string>
 </resources>
