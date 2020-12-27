@@ -55,6 +55,12 @@
         android:fragment="org.omnirom.omnigears.DozeSettings" />
 
     <Preference
+        android:key="led_settings"
+        android:title="@string/batterylight_title"
+        android:icon="@drawable/ic_homepage_led"
+        android:fragment="org.omnirom.omnigears.batterylight.BatteryLightSettings" />
+
+    <Preference
         android:key="omnijaws_settings"
         android:icon="@drawable/ic_homepage_weather"
         android:title="@string/weather_title"

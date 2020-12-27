@@ -65,6 +65,12 @@ public class OmniDashboardFragment extends DashboardFragment {
                 getPreferenceScreen().removePreference(pref);
             }
         }
+        if (!getResources().getBoolean(com.android.internal.R.bool.config_intrusiveBatteryLed)) {
+            Preference pref = getPreferenceScreen().findPreference(KEY_BATTERY_LIGHTS);
+            if (pref != null) {
+                getPreferenceScreen().removePreference(pref);
+            }
+        }
         if (!Utils.isVoiceCapable(getContext())) {
             Preference pref = getPreferenceScreen().findPreference(KEY_DIALER_SETTINGS);
             if (pref != null) {
@@ -132,6 +138,9 @@ public class OmniDashboardFragment extends DashboardFragment {
                     }
                     if (!context.getResources().getBoolean(com.android.internal.R.bool.config_dozeAlwaysOnDisplayAvailable)) {
                         result.add(KEY_AMBIENT_DISPLAY);
+                    }
+                    if (!context.getResources().getBoolean(com.android.internal.R.bool.config_intrusiveBatteryLed)) {
+                        result.add(KEY_BATTERY_LIGHTS);
                     }
                     if (!PackageUtils.isAvailableApp(WEATHER_SERVICE_PACKAGE, context)) {
                         result.add(KEY_WEATHER_SETTINGS);
