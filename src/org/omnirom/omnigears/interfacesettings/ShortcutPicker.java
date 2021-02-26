@@ -41,9 +41,11 @@ public abstract class ShortcutPicker extends SettingsPreferenceFragment {
 
     public static final String LOCKSCREEN_LEFT_BUTTON = "sysui_keyguard_left";
     public static final String LOCKSCREEN_RIGHT_BUTTON = "sysui_keyguard_right";
+    public static final String LOCKSCREEN_HIDDEN_BUTTON = "none";
 
     private final ArrayList<SelectablePreference> mSelectablePreferences = new ArrayList<>();
-    private SelectablePreference mNonePreference;
+    private HiddenPreference mHiddenPreference;
+    private SelectablePreference mDefaultPreference;
 
     @Override
     public int getMetricsCategory() {
@@ -58,11 +60,21 @@ public abstract class ShortcutPicker extends SettingsPreferenceFragment {
         PreferenceCategory otherApps = new PreferenceCategory(context);
         otherApps.setTitle(R.string.tuner_other_apps);
 
-        mNonePreference = new SelectablePreference(context);
-        mSelectablePreferences.add(mNonePreference);
-        mNonePreference.setTitle(R.string.lockscreen_none);
-        mNonePreference.setIcon(R.drawable.ic_remove_circle);
-        screen.addPreference(mNonePreference);
+        mHiddenPreference = new HiddenPreference(context);
+        mSelectablePreferences.add(mHiddenPreference);
+        mHiddenPreference.setTitle(R.string.lockscreen_hidden);
+        mHiddenPreference.setIcon(R.drawable.ic_remove_circle);
+        screen.addPreference(mHiddenPreference);
+
+        mDefaultPreference = new SelectablePreference(context);
+        mSelectablePreferences.add(mDefaultPreference);
+        mDefaultPreference.setTitle(R.string.lockscreen_default);
+        screen.addPreference(mDefaultPreference);
+        if (LOCKSCREEN_LEFT_BUTTON.equals(getKey())) {
+            mDefaultPreference.setIcon(context.getDrawable(R.drawable.ic_mic_26dp));
+        } else {
+            mDefaultPreference.setIcon(context.getDrawable(R.drawable.ic_camera_alt_24dp));
+        }
 
         LauncherApps apps = getContext().getSystemService(LauncherApps.class);
         List<LauncherActivityInfo> activities = apps.getActivityList(null,
@@ -106,6 +118,8 @@ public abstract class ShortcutPicker extends SettingsPreferenceFragment {
         String value = Settings.Secure.getString(getContentResolver(), getKey());
         if (!TextUtils.isEmpty(value)) {
             mSelectablePreferences.forEach(p -> p.setChecked(value.equals(p.toString())));
+        } else {
+            mDefaultPreference.setChecked(true);
         }
     }
 
@@ -192,6 +206,18 @@ public abstract class ShortcutPicker extends SettingsPreferenceFragment {
         @Override
         public String toString() {
             return mShortcut.toString();
+        }
+    }
+
+    private static class HiddenPreference extends SelectablePreference {
+
+        public HiddenPreference(Context context) {
+            super(context);
+        }
+
+        @Override
+        public String toString() {
+            return LOCKSCREEN_HIDDEN_BUTTON;
         }
     }
 

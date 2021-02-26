@@ -116,10 +116,12 @@ public class LockscreenItemSettings extends SettingsPreferenceFragment implement
 
     private void setShortcutSummary(Preference shortcut, String value) {
         if (value == null) {
-            shortcut.setSummary(R.string.lockscreen_none);
+            shortcut.setSummary(R.string.lockscreen_default);
             return;
-        }
-        if (value.contains("::")) {
+        } else if (value.equals(ShortcutPicker.LOCKSCREEN_HIDDEN_BUTTON)) {
+            shortcut.setSummary(R.string.lockscreen_hidden);
+            return;
+        } else if (value.contains("::")) {
             ShortcutParser.Shortcut info = getShortcutInfo(getContext(), value);
             shortcut.setSummary(info != null ? info.label : null);
         } else if (value.contains("/")) {
@@ -127,7 +129,7 @@ public class LockscreenItemSettings extends SettingsPreferenceFragment implement
             shortcut.setSummary(info != null ? info.loadLabel(getContext().getPackageManager())
                     : null);
         } else {
-            shortcut.setSummary(R.string.lockscreen_none);
+            shortcut.setSummary(R.string.lockscreen_default);
         }
     }
 
