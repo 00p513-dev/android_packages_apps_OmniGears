@@ -57,5 +57,32 @@
         android:max="25"
         settings:min="0"
         android:persistent="false" />-->
+    
+    <PreferenceCategory
+        android:key="category_shortcuts"
+        android:title="@string/keyguard_shortuts"/>
+
+    <Preference
+        android:key="sysui_keyguard_left"
+        android:title="@string/lockscreen_shortcut_left"
+        android:fragment="org.omnirom.omnigears.interfacesettings.ShortcutPicker$Left"
+        android:persistent="false"/>
+
+    <org.omnirom.omnilib.preference.SecureSettingSwitchPreference
+        android:key="sysui_keyguard_left_unlock"
+        android:title="@string/lockscreen_unlock_left"
+        android:defaultValue="true" />
+
+    <Preference
+        android:key="sysui_keyguard_right"
+        android:title="@string/lockscreen_shortcut_right" 
+        android:fragment="org.omnirom.omnigears.interfacesettings.ShortcutPicker$Right"
+        android:persistent="false"/>
+
+    <org.omnirom.omnilib.preference.SecureSettingSwitchPreference
+        android:key="sysui_keyguard_right_unlock"
+        android:title="@string/lockscreen_unlock_right"
+        android:defaultValue="true" />
+
 </PreferenceScreen>
 

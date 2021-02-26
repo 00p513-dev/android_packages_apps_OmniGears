@@ -17,8 +17,11 @@
 */
 package org.omnirom.omnigears.interfacesettings;
 import android.os.Bundle;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Resources;
 import androidx.preference.Preference;
 import android.provider.SearchIndexableResource;
@@ -48,12 +51,16 @@ public class LockscreenItemSettings extends SettingsPreferenceFragment implement
     //private static final String KEY_LOCKSCREEN_MEDIA_BLUR = "lockscreen_media_blur";
     private static final String KEY_LOCKSCREEN_WEATHER = "lockscreen_weather_enabled";
     private static final String WEATHER_SERVICE_PACKAGE = "org.omnirom.omnijaws";
+    private static final String LOCKSCREEN_LEFT_UNLOCK = "sysui_keyguard_left_unlock";
+    private static final String LOCKSCREEN_RIGHT_UNLOCK = "sysui_keyguard_right_unlock";
 
-    private SeekBarPreference mLockscreenMediaBlur;
+    //private SeekBarPreference mLockscreenMediaBlur;
+    private Preference mLeftShortcut;
+    private Preference mRightShortcut;
 
     @Override
     public int getMetricsCategory() {
-        return 1751;
+        return MetricsEvent.OMNI_SETTINGS;
     }
 
     @Override
@@ -73,6 +80,15 @@ public class LockscreenItemSettings extends SettingsPreferenceFragment implement
                 getPreferenceScreen().removePreference(pref);
             }
         }
+    
+        mLeftShortcut = findPreference(ShortcutPicker.LOCKSCREEN_LEFT_BUTTON);
+        mRightShortcut = findPreference(ShortcutPicker.LOCKSCREEN_RIGHT_BUTTON);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        updateShortcutSummary();
     }
 
     @Override
@@ -89,6 +105,43 @@ public class LockscreenItemSettings extends SettingsPreferenceFragment implement
             return true;
         }*/
         return true;
+    }
+
+    private void updateShortcutSummary() {
+        String leftValue = Settings.Secure.getString(getContentResolver(), ShortcutPicker.LOCKSCREEN_LEFT_BUTTON);
+        setShortcutSummary(mLeftShortcut, leftValue);
+        String rightValue = Settings.Secure.getString(getContentResolver(), ShortcutPicker.LOCKSCREEN_RIGHT_BUTTON);
+        setShortcutSummary(mRightShortcut, rightValue);
+    }
+
+    private void setShortcutSummary(Preference shortcut, String value) {
+        if (value == null) {
+            shortcut.setSummary(R.string.lockscreen_none);
+            return;
+        }
+        if (value.contains("::")) {
+            ShortcutParser.Shortcut info = getShortcutInfo(getContext(), value);
+            shortcut.setSummary(info != null ? info.label : null);
+        } else if (value.contains("/")) {
+            ActivityInfo info = getActivityinfo(getContext(), value);
+            shortcut.setSummary(info != null ? info.loadLabel(getContext().getPackageManager())
+                    : null);
+        } else {
+            shortcut.setSummary(R.string.lockscreen_none);
+        }
+    }
+
+    private ActivityInfo getActivityinfo(Context context, String value) {
+        ComponentName component = ComponentName.unflattenFromString(value);
+        try {
+            return context.getPackageManager().getActivityInfo(component, 0);
+        } catch (NameNotFoundException e) {
+            return null;
+        }
+    }
+
+    private ShortcutParser.Shortcut getShortcutInfo(Context context, String value) {
+        return ShortcutParser.Shortcut.create(context, value);
     }
 
     public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =

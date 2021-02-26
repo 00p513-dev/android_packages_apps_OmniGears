@@ -884,4 +884,14 @@
     <string name="doze_brightness_force_summary">Set to those values independent of the current value</string>
     <string name="status_bar_bt_battery_title">Show Bluetooth battery level</string>
     <string name="status_bar_bt_battery_summary">For supported devices show battery level also in status bar</string>
+
+    <string name="lockscreen_none">None</string>
+    <string name="tuner_other_apps">Other apps</string>
+    <string name="lockscreen_shortcut_left">Left shortcut</string>
+    <string name="lockscreen_shortcut_right">Right shortcut</string>
+    <string name="tuner_app"><xliff:g id="app">%1$s</xliff:g> app</string>
+    <string name="tuner_launch_app">Launch <xliff:g id="app" example="Settings">%1$s</xliff:g></string>
+    <string name="lockscreen_unlock_right">Right shortcut also unlocks</string>
+    <string name="lockscreen_unlock_left">Left shortcut also unlocks</string>
+    <string name="keyguard_shortuts">Shortcuts</string>
 </resources>
