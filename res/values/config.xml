@@ -19,5 +19,7 @@
 
     <!-- power button support. Some devices do not have a power button -->
     <bool name="config_has_power_button">true</bool>
+    <!-- hardware volume button -->
+    <bool name="config_has_volume_button">true</bool>
 
 </resources>

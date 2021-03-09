@@ -59,6 +59,7 @@ public class ButtonSettings extends SettingsPreferenceFragment implements OnPref
     private static final String CATEGORY_KEYS = "button_keys";
     private static final String CATEGORY_OTHER = "button_other";
     private static final String CATEGORY_POWER = "button_power";
+    private static final String CATEGORY_VOLUME = "button_volume_keys";
     private static final String NAVIGATION_BAR_RECENTS_STYLE = "navbar_recents_style";
     private static final String SYSTEM_PROXI_CHECK_ENABLED = "system_proxi_check_enabled";
     private static final String KEY_ADVANCED_REBOOT = "advanced_reboot";
@@ -80,6 +81,8 @@ public class ButtonSettings extends SettingsPreferenceFragment implements OnPref
         final PreferenceScreen prefScreen = getPreferenceScreen();
         final PreferenceCategory powerCategory =
                 (PreferenceCategory) prefScreen.findPreference(CATEGORY_POWER);
+        final PreferenceCategory volumeCategory =
+                (PreferenceCategory) prefScreen.findPreference(CATEGORY_VOLUME);
 
         mNavbarRecentsStyle = (ListPreference) findPreference(NAVIGATION_BAR_RECENTS_STYLE);
         int recentsStyle = Settings.System.getInt(resolver,
@@ -106,7 +109,10 @@ public class ButtonSettings extends SettingsPreferenceFragment implements OnPref
             }
         } else {
             prefScreen.removePreference(powerCategory);
-        } 
+        }
+        if(!getResources().getBoolean(R.bool.config_has_volume_button)){
+            prefScreen.removePreference(volumeCategory);
+        }
     }
 
     @Override
