@@ -24,6 +24,7 @@ import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Resources;
 import androidx.preference.Preference;
+import androidx.preference.PreferenceScreen;
 import android.provider.SearchIndexableResource;
 import android.provider.Settings;
 
@@ -53,10 +54,16 @@ public class LockscreenItemSettings extends SettingsPreferenceFragment implement
     private static final String WEATHER_SERVICE_PACKAGE = "org.omnirom.omnijaws";
     private static final String LOCKSCREEN_LEFT_UNLOCK = "sysui_keyguard_left_unlock";
     private static final String LOCKSCREEN_RIGHT_UNLOCK = "sysui_keyguard_right_unlock";
+    private static final String KEYGUARD_SHOW_BATTERY_BAR = "sysui_keyguard_show_battery_bar";
+    private static final String KEYGUARD_SHOW_BATTERY_BAR_ALWAYS = "sysui_keyguard_show_battery_bar_always";
+    private static final String PREFERENCE_BATTERY = "category_battery";
 
     //private SeekBarPreference mLockscreenMediaBlur;
     private Preference mLeftShortcut;
     private Preference mRightShortcut;
+    private Preference mBatteryInfo;
+    private SystemSettingSwitchPreference mBatteryBar;
+    private SystemSettingSwitchPreference mBatteryBarAlways;
 
     @Override
     public int getMetricsCategory() {
@@ -73,6 +80,24 @@ public class LockscreenItemSettings extends SettingsPreferenceFragment implement
                 Settings.System.OMNI_LOCKSCREEN_MEDIA_BLUR, 12), 25);
         mLockscreenMediaBlur.setValue(value);
         mLockscreenMediaBlur.setOnPreferenceChangeListener(this);*/
+
+        mBatteryBar = (SystemSettingSwitchPreference) findPreference(KEYGUARD_SHOW_BATTERY_BAR);
+        mBatteryBar.setChecked(Settings.System.getInt(getContentResolver(),
+                        Settings.System.OMNI_KEYGUARD_SHOW_BATTERY_BAR, 1) != 1);
+        mBatteryBar.setOnPreferenceChangeListener(this);
+
+        mBatteryBarAlways = (SystemSettingSwitchPreference) findPreference(KEYGUARD_SHOW_BATTERY_BAR_ALWAYS);
+        mBatteryBarAlways.setChecked(Settings.System.getInt(getContentResolver(),
+                        Settings.System.OMNI_KEYGUARD_SHOW_BATTERY_BAR, 1) != 0);
+        mBatteryBarAlways.setOnPreferenceChangeListener(this);
+
+        mBatteryInfo = getPreferenceScreen().findPreference(PREFERENCE_BATTERY);
+        boolean showBatteryCategory = getResources().getBoolean(R.bool.config_show_top_level_battery);
+        if (!showBatteryCategory) {
+            Settings.System.putInt(getContentResolver(),
+                        Settings.System.OMNI_KEYGUARD_SHOW_BATTERY_BAR, 0);
+            getPreferenceScreen().removePreference(mBatteryInfo);
+        }
 
         if (!PackageUtils.isAvailableApp(WEATHER_SERVICE_PACKAGE, getContext())) {
             Preference pref = getPreferenceScreen().findPreference(KEY_LOCKSCREEN_WEATHER);
@@ -104,6 +129,15 @@ public class LockscreenItemSettings extends SettingsPreferenceFragment implement
                     Settings.System.OMNI_LOCKSCREEN_MEDIA_BLUR, value);
             return true;
         }*/
+        if (preference == mBatteryBar) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.OMNI_KEYGUARD_SHOW_BATTERY_BAR, value ? 1 : 0);
+        } else if (preference == mBatteryBarAlways) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.OMNI_KEYGUARD_SHOW_BATTERY_BAR_ALWAYS, value ? 1 : 0);
+        }
         return true;
     }
 

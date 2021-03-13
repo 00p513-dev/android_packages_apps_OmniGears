@@ -895,4 +895,11 @@
     <string name="lockscreen_unlock_left">Left shortcut also unlocks</string>
     <string name="keyguard_shortuts">Shortcuts</string>
     <string name="lockscreen_default">Default</string>
+
+    <!-- Battery Info -->
+    <string name="keyguard_battery_info">Battery info</string>
+    <string name="keyguard_show_battery_bar_title">Show battery bar</string>
+    <string name="keyguard_show_battery_bar_summary">Show battery bar on charging in always on display</string>
+    <string name="keyguard_show_battery_bar_always_title">Always show battery bar</string>
+    <string name="keyguard_show_battery_bar_always_summary">Always show battery bar on charging</string>
 </resources>
