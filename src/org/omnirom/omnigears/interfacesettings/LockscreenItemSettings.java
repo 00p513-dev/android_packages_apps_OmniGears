@@ -56,6 +56,9 @@ public class LockscreenItemSettings extends SettingsPreferenceFragment implement
     private static final String LOCKSCREEN_RIGHT_UNLOCK = "sysui_keyguard_right_unlock";
     private static final String KEYGUARD_SHOW_BATTERY_BAR = "sysui_keyguard_show_battery_bar";
     private static final String KEYGUARD_SHOW_BATTERY_BAR_ALWAYS = "sysui_keyguard_show_battery_bar_always";
+    private static final String KEYGUARD_SHOW_WATT_ON_CHARGING = "sysui_keyguard_show_watt";
+    private static final String KEYGUARD_SHOW_CURRENT_ON_CHARGING = "sysui_keyguard_show_current";
+    private static final String KEYGUARD_SHOW_BATTERY_TEMP = "sysui_keyguard_show_battery_temp";
     private static final String PREFERENCE_BATTERY = "category_battery";
 
     //private SeekBarPreference mLockscreenMediaBlur;
@@ -64,6 +67,9 @@ public class LockscreenItemSettings extends SettingsPreferenceFragment implement
     private Preference mBatteryInfo;
     private SystemSettingSwitchPreference mBatteryBar;
     private SystemSettingSwitchPreference mBatteryBarAlways;
+    private SystemSettingSwitchPreference mShowWatt;
+    private SystemSettingSwitchPreference mShowCurrent;
+    private SystemSettingSwitchPreference mShowTemp;
 
     @Override
     public int getMetricsCategory() {
@@ -98,6 +104,21 @@ public class LockscreenItemSettings extends SettingsPreferenceFragment implement
                         Settings.System.OMNI_KEYGUARD_SHOW_BATTERY_BAR, 0);
             getPreferenceScreen().removePreference(mBatteryInfo);
         }
+
+        mShowWatt = (SystemSettingSwitchPreference) findPreference(KEYGUARD_SHOW_WATT_ON_CHARGING);
+        mShowWatt.setChecked(Settings.System.getInt(getContentResolver(),
+                        Settings.System.OMNI_KEYGUARD_SHOW_WATT_ON_CHARGING, 1) != 0);
+        mShowWatt.setOnPreferenceChangeListener(this);
+
+        mShowCurrent = (SystemSettingSwitchPreference) findPreference(KEYGUARD_SHOW_CURRENT_ON_CHARGING);
+        mShowCurrent.setChecked(Settings.System.getInt(getContentResolver(),
+                        Settings.System.OMNI_KEYGUARD_SHOW_CURRENT_ON_CHARGING, 1) != 0);
+        mShowCurrent.setOnPreferenceChangeListener(this);
+
+        mShowTemp = (SystemSettingSwitchPreference) findPreference(KEYGUARD_SHOW_BATTERY_TEMP);
+        mShowTemp.setChecked(Settings.System.getInt(getContentResolver(),
+                        Settings.System.OMNI_KEYGUARD_SHOW_BATTERY_TEMP, 1) != 0);
+        mShowTemp.setOnPreferenceChangeListener(this);
 
         if (!PackageUtils.isAvailableApp(WEATHER_SERVICE_PACKAGE, getContext())) {
             Preference pref = getPreferenceScreen().findPreference(KEY_LOCKSCREEN_WEATHER);
@@ -137,6 +158,18 @@ public class LockscreenItemSettings extends SettingsPreferenceFragment implement
             boolean value = (Boolean) newValue;
             Settings.System.putInt(getContentResolver(),
                     Settings.System.OMNI_KEYGUARD_SHOW_BATTERY_BAR_ALWAYS, value ? 1 : 0);
+        } else if (preference == mShowWatt) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.OMNI_KEYGUARD_SHOW_WATT_ON_CHARGING, value ? 1 : 0);
+        } else if (preference == mShowCurrent) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.OMNI_KEYGUARD_SHOW_CURRENT_ON_CHARGING, value ? 1 : 0);
+        } else if (preference == mShowTemp) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.OMNI_KEYGUARD_SHOW_BATTERY_TEMP, value ? 1 : 0);
         }
         return true;
     }

@@ -100,6 +100,24 @@
             android:summary="@string/keyguard_show_battery_bar_always_summary"
             android:dependency="sysui_keyguard_show_battery_bar"
             android:defaultValue="false" />
+
+        <org.omnirom.omnilib.preference.SystemSettingSwitchPreference
+            android:key="sysui_keyguard_show_watt"
+            android:title="@string/keyguard_show_watt_title"
+            android:summary="@string/keyguard_show_watt_summary"
+            android:defaultValue="false" />
+
+        <org.omnirom.omnilib.preference.SystemSettingSwitchPreference
+            android:key="sysui_keyguard_show_current"
+            android:title="@string/keyguard_show_current_title"
+            android:summary="@string/keyguard_show_current_summary"
+            android:defaultValue="false" />
+
+        <org.omnirom.omnilib.preference.SystemSettingSwitchPreference
+            android:key="sysui_keyguard_show_battery_temp"
+            android:title="@string/keyguard_show_battery_temp_title"
+            android:summary="@string/keyguard_show_battery_temp_summary"
+            android:defaultValue="false" />
     </PreferenceCategory>
 
 </PreferenceScreen>
