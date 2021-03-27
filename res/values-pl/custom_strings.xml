@@ -758,4 +758,5 @@
     <string name="ambient_notification_light_color_mode_automatic">Kolor powiadomienia</string>
     <string name="ambient_notification_light_color_mode_accent">Kolor akcentu systemowego</string>
     <string name="ambient_notification_light_color_mode_custom">Kolor niestandardowy</string>
+    <!-- Battery Info -->
 </resources>

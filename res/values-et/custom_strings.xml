@@ -735,4 +735,5 @@
     <string name="entry_sixty_minute">60 minutit</string>
     <string name="entry_fifteen_minute">15 minutit</string>
     <string name="ambient_notification_light_color_mode_custom">Kohandatud värv</string>
+    <!-- Battery Info -->
 </resources>

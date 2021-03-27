@@ -17,6 +17,7 @@
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="settings_label">OmniGears</string>
     <string name="ok">OK</string>
     <string name="advanced">Avanzate</string>
     <string name="profiles_add">Aggiungi...</string>
@@ -462,6 +463,7 @@
     <string name="volume_button_force_media_summary">Il volume dei file multimediali verrà modificato di default</string>
     <string name="status_bar_logo_title">Logo barra di stato</string>
     <string name="status_bar_logo_summary">Un po\' di swag</string>
+    <string name="doze_settings_title">Ambient display</string>
     <string name="DESC_INACTIVE_TIMEOUT">Questo è quando, dopo essere diventato inattivo, iniziamo a guardare il sensore di movimento per determinare se il dispositivo è stato lasciato da solo. Non lo facciamo subito dopo la disattivazione solo perché non vogliamo tenere continuamente in esecuzione il sensore di movimento ogni volta che lo schermo è spento</string>
     <string name="DESC_SENSING_TIMEOUT">Se non riceviamo un avviso da AnyMotion in questo lasso di tempo + locating_to, cambieremo da STATE_SENSING a STATE_INACTIVE, e verrà ignorato qualsiasi avviso AnyMotion non in STATE_SENSING</string>
     <string name="DESC_LOCATING_TIMEOUT">Questo è quanto tempo aspetteremo per cercare di ottenere una buona posizione prima di andare modalità di riposo</string>
@@ -539,6 +541,8 @@
     <string name="screen_off_animation_crt">CRT</string>
     <string name="screen_off_animation_scale">Scala</string>
     <string name="screen_off_animation_title">Animazioni di spegnimento schermo</string>
+    <string name="theme_select_title">Temi</string>
+    <string name="theme_select_summary">Sfoglia e seleziona temi installati</string>
     <string name="keys_action_notifications">Notifiche</string>
     <string name="battery_style_text">Solo testo</string>
     <string name="battery_style_default">Predefinita</string>
@@ -675,9 +679,15 @@
     <string name="splitscreen_force_systembar_enabled_title">Forza la visualizzazione delle barre di sistema nello schermo diviso</string>
     <string name="gesture_settings_title">Gesti</string>
     <string name="gesture_settings_info">La barra di navigazione deve essere disabilitata!\n\nGesti disponibili:\n\nIndietro\n- Scorri verso l\'alto sul lato destro o sinistro\n\nHome\n- Scorri verso l\'alto al centro\n\nApp recenti\n- Scorri verso l\'alto e mantieni\n\nPremi a lungo il tasto home\n- Scorri brevemente verso l\'alto e tieni premuto al centro</string>
+    <string name="gesture_settings_info_new">La barra di navigazione sarà disattivata/attivata!\n\nGesti disponibili:\n\nIndietro\n- Scorri verso l\'alto sul lato sinistro o destro\n\nHome\n- Scorri verso l\'alto verso il centro\n\nApplicazioni recenti\n- Scorri verso l\'alto e tieni premuto\n\nPassa all\'ultima app\n- Scorri verso l\'alto e tieni premuto il centro</string>
     <string name="use_bottom_gesture_title">Gesti di navigazione</string>
     <string name="use_bottom_gesture_summary">Scorri verso l\'alto dalla parte inferiore dello schermo per navigare</string>
     <string name="gesture_swipe_length_title">Lunghezza dell\'area di scorrimento</string>
+    <string name="gesture_swipe_length_summary">Lunghezza dello scorrimento richiesto per attivare il gesto</string>
+    <string name="gesture_swipe_start_title">Altezza avvio dello scorrimento</string>
+    <string name="gesture_swipe_start_summary">Altezza minima dal basso per avviare il gesto di attivazione</string>
+    <string name="gesture_action_timeout_title">Timeout scorrimento attivazione</string>
+    <string name="gesture_action_timeout_summary">Timeout prima che l\'azione gesto venga avviata</string>
     <string name="unit_dpi">DPI</string>
     <string name="unit_px">pixel</string>
     <string name="header_category_omni">OmniGears</string>
@@ -689,10 +699,84 @@
     <string name="omni_device_parts">Funzioni del dispositivo</string>
     <string name="style_settings_title">Stile</string>
     <string name="style_settings_summary">Sfondi e altre chicche</string>
+    <string name="custom_bars_settings_title">Barre</string>
     <!-- StatusBar -->
+    <string name="statusbar_settings_category">Barra di stato</string>
+    <string name="use_old_mobiletype_title">Usa lo stile vecchio del tipo di rete</string>
+    <string name="use_old_mobiletype_summary">Unisci le icone del segnale e del tipo di rete</string>
+    <string name="hide_notch_title">Nascondi notch</string>
+    <string name="hide_notch_summary">Le app non possono utilizzare l\'area del notch</string>
+    <string name="recents_tasks_visible_disable_title">Disattiva i limiti delle app recenti</string>
+    <string name="recents_tasks_visible_disable_summary">Mostra tutte le app recenti senza limiti di tempo o di dimensione</string>
     <!-- Display Manager -->
+    <string name="omni_display_manager">Colori schermo</string>
     <!-- Dialer Setting -->
+    <string name="dialer_settings_title">Tastierino</string>
+    <string name="incall_vibrate_connect_title">Vibra quando connesso</string>
+    <string name="incall_vibrate_connect_summary">Vibra il dispositivo alla connessione</string>
+    <string name="incall_vibrate_call_wait_title">Vibra con chiamata in attesa</string>
+    <string name="incall_vibrate_call_wait_summary">Vibra il dispositivo in attesa di chiamata</string>
+    <string name="incall_vibrate_disconnect_title">Vibra alla disconnessione</string>
+    <string name="incall_vibrate_disconnect_summary">Vibra il dispositivo alla disconnessione della chiamata</string>
     <!-- Fingerprint -->
+    <string name="fingerprint_settings_title">Impronte digitali</string>
+    <string name="fingerprint_category_custom_icon">Icona personalizzata</string>
+    <string name="fingerprint_custom_icon_select">Seleziona un file personalizzato</string>
+    <string name="ambient_pulse_brightness_title">Luminosità notifiche</string>
+    <string name="ambient_pulse_brightness_summary">Imposta la luminosità da usare durante la visualizzazione di nuove notifiche</string>
+    <string name="ambient_doze_brightness_title">Sempre su luminosità</string>
+    <string name="ambient_doze_brightness_summary">Imposta la luminosità da usare quando il dispositivo è in modalità Always On (schermo sempre acceso)</string>
     <!-- doze on charge -->
+    <string name="doze_on_charge_title">Mostra Always On (schermo sempre acceso) durante la carica</string>
+    <string name="doze_on_charge_summary">Accendi lo schermo durante la ricarica</string>
     <!-- lock screen media blur -->
+    <string name="lockscreen_media_blur_title">Livello sfocatura grafica multimediale</string>
+    <string name="lockscreen_media_blur_summary">Controlla la quantità di sfocatura della grafica multimediale</string>
+    <string name="recents_style_info_title">Valido solo se si usa la modalità di navigazione a 3 pulsanti.</string>
+    <string name="omni_remote_title">OmniRemote</string>
+    <string name="omni_remote_summary">Server VNC per consentire la connessione remota al dispositivo</string>
+    <string name="show_rotation_suggestions_title">Mostra suggerimenti di rotazione</string>
+    <string name="show_rotation_suggestions_summary">In modalità rotazione bloccata</string>
+    <string name="pulse_ambient_light_title">Mostra sulla nuova notifica</string>
+    <string name="pulse_ambient_light_summary">Mostra impulso di luce sulla nuova notifica</string>
+    <string name="ambient_notification_light_enabled_title">Mostra quando è attiva la modalità Always On (sempre acceso)</string>
+    <string name="ambient_notification_light_enabled_summary">Mostra impulso di luce ad ogni nuova notifica quando è attiva la modalità Always On (schermo sempre acceso)</string>
+    <string name="pulse_ambient_light_note">Accendi schermo alla ricezione di nuove notifiche deve essere attivata</string>
+    <string name="ambient_brigthness_category_title">Luminosità schermo</string>
+    <string name="pulse_ambient_category_title">Impulso luminoso notifica</string>
+    <string name="ambient_notification_light_hide_aod_title">Mostra solo l\'impulso luminoso</string>
+    <string name="ambient_notification_light_hide_aod_summary">Nascondi tutti gli altri elementi di visualizzazione sempre accesi</string>
+    <string name="ambient_notification_light_color_title">Colore personalizzato</string>
+    <string name="ambient_notification_light_color_summary">Colore predefinito per l\'impulso luminoso</string>
+    <string name="ambient_notification_light_timeout_title">Timeout per impulso luminoso</string>
+    <string name="entry_infinite">Infinito</string>
+    <string name="entry_five_minute">5 minuti</string>
+    <string name="entry_ten_minute">10 minuti</string>
+    <string name="entry_thirty_minute">30 minuti</string>
+    <string name="entry_sixty_minute">60 minuti</string>
+    <string name="entry_fifteen_minute">15 minuti</string>
+    <string name="ambient_notification_light_color_mode_title">Colore charo dell\'impulso</string>
+    <string name="ambient_notification_light_color_mode_automatic">Colore notifica</string>
+    <string name="ambient_notification_light_color_mode_accent">Colore di rilievo del sistema</string>
+    <string name="ambient_notification_light_color_mode_custom">Colore personalizzato</string>
+    <string name="doze_brightness_force_title">Forza valore luminosità</string>
+    <string name="doze_brightness_force_summary">Imposta a questi valori indipendentemente dal valore corrente</string>
+    <string name="status_bar_bt_battery_title">Mostra livello batteria Bluetooth</string>
+    <string name="status_bar_bt_battery_summary">Per i dispositivi supportati mostra il livello della batteria anche nella barra di stato</string>
+    <string name="lockscreen_hidden">Nessuno</string>
+    <string name="tuner_other_apps">Altre app</string>
+    <string name="lockscreen_shortcut_left">Scorciatoia sinistra</string>
+    <string name="lockscreen_shortcut_right">Scorciatoia destra</string>
+    <string name="tuner_app">App <xliff:g id="app">%1$s</xliff:g></string>
+    <string name="tuner_launch_app">Apri <xliff:g id="app" example="Settings">%1$s</xliff:g></string>
+    <string name="lockscreen_unlock_right">Anche la scorciatoia destra sblocca</string>
+    <string name="lockscreen_unlock_left">Anche la scorciatoia sinistra sblocca</string>
+    <string name="keyguard_shortuts">Scorciatoie</string>
+    <string name="lockscreen_default">Predefinito</string>
+    <!-- Battery Info -->
+    <string name="keyguard_battery_info">Informazioni batteria</string>
+    <string name="keyguard_show_battery_bar_title">Mostra barra batteria</string>
+    <string name="keyguard_show_battery_bar_summary">Mostra la barra della batteria durante la ricarica in modalità Always On (schermo sempre acceso)</string>
+    <string name="keyguard_show_battery_bar_always_title">Mostra sempre la barra della batteria</string>
+    <string name="keyguard_show_battery_bar_always_summary">Mostra sempre la barra della batteria durante la ricarica</string>
 </resources>

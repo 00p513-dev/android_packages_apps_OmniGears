@@ -17,6 +17,7 @@
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="settings_label">OmniGears</string>
     <string name="ok">OK</string>
     <string name="advanced">Rozšírené</string>
     <string name="profiles_add">Pridať...</string>
@@ -73,6 +74,7 @@
     <string name="button_home_answers_call_title">Tlačidlo prijme hovor</string>
     <string name="button_home_answers_call_summary">Stlačenie tlačidla domov zodvihne prichádzajúci hovor</string>
     <string name="button_other_title">Iné</string>
+    <string name="keys_action_app_switch_defaut">Predvolené</string>
     <string name="keys_action_omniswitch_short">OmniSwitch</string>
     <string name="button_back_kill_enable_title">Tlačidlom naspäť zabiť aplikáciu</string>
     <string name="button_back_kill_enable_summary">Dlhým stlačením tlačidla naspäť zabiť aplikáciu v popredí</string>
@@ -261,6 +263,8 @@
     <string name="network_traffic_autohide_threshold">Prah nečinnosti</string>
     <string name="network_traffic_enable_title">Zapnúť</string>
     <!-- captive portal - connectivity check -->
+    <string name="captive_portal_mode_title">Kontrola konektivity siete</string>
+    <string name="captive_portal_mode_summary">Povoliť test pripojenia k sieti</string>
     <!-- statusbar brightness -->
     <string name="status_bar_brightness_control_title">Ovládanie jasu</string>
     <string name="status_bar_brightness_control_summary">Upraviť jas posúvaním po stavovej lište</string>
@@ -462,6 +466,7 @@
     <string name="volume_button_force_media_summary">Hlasitosť médií bude predvolene zmenená</string>
     <string name="status_bar_logo_title">Logo v stavovej lište</string>
     <string name="status_bar_logo_summary">Malý bonus</string>
+    <string name="doze_settings_title">Ambientne zobrazenie</string>
     <string name="DESC_INACTIVE_TIMEOUT">Keď sa zariadenie stane neaktívnym, po uplynutí tohoto času začneme kontrolovať snímač pohybu, aby sme zistili, či zariadenie zostalo osamote. Nemôžeme to urobiť ihneď po tom, ako sa stane neaktívnym, pretože nechceme nepretržite kontrolovať dôležitý snímač pohybu, keď je obrazovka vypnutá</string>
     <string name="DESC_SENSING_TIMEOUT">Ak nedostaneme spätné volanie z AnyMotion v tejto časovej lehote + locating_to, zmeníme STATE_SENSING na STATE_INACTIVE a ľubovoľné spätné volania AnyMotion, ktoré nie sú v STATE_SENSING, budú ignorované</string>
     <string name="DESC_LOCATING_TIMEOUT">Určuje ako dlho sa bude čakať, kým sa pokúsi dosiahnuť dobrá fixácia polohy predtým, ako prejde do režimu nečinnosti</string>
@@ -539,6 +544,8 @@
     <string name="screen_off_animation_crt">CRT</string>
     <string name="screen_off_animation_scale">Mierka</string>
     <string name="screen_off_animation_title">Animácia vypnutia obrazovky</string>
+    <string name="theme_select_title">Témy</string>
+    <string name="theme_select_summary">Prehliadanie a výber nainštalovaných tém</string>
     <string name="keys_action_notifications">Upozornenia</string>
     <string name="battery_style_text">Iba text</string>
     <string name="battery_style_default">Predvolené</string>
@@ -669,12 +676,93 @@
     <string name="digital_clock_settings_summary">Nastavenia štýlu</string>
     <string name="event_service_settings_title">Udalosti</string>
     <!-- QuickSettings Panel Transparency -->
+    <string name="quick_settings_category">Rýchle nastavenia</string>
+    <string name="qs_panel_alpha_title">Priehľadnosť Rýchlych nastavení</string>
     <string name="qs_panel_alpha_summary">Konfigurácia priehľadnosti pozadia</string>
     <string name="splitscreen_force_systembar_enabled_title">Vynútene zobraziť systémové panely na rozdelenej obrazovke</string>
+    <string name="gesture_settings_title">Gestá</string>
+    <string name="gesture_settings_info">Navigačný panel musí byť vypnutý!\n\nDostupné gestá:\n\nSpät\n- Potiahnutím nahor na ľavej alebo pravej strane\n\nDomů\n- Potiahnutím nahor uprostred\n\nNedávne aplikácie\n- Potiahnutím nahor uprostred a pridržaním\n\nDlhé stlačenie tlačidla Domov\n- Krátkym potiahnutím nahor a podržaním uprostred</string>
+    <string name="gesture_settings_info_new">Navigačný panel musí byť vypnutý/zapnutý!\n\nDostupné gestá:\n\nSpät\n- Potiahnutím nahor na ľavej alebo pravej strane\n\nDomů\n- Potiahnutím nahor uprostred\n\nNedávne aplikácie\n- Potiahnutím nahor uprostred a pridržaním\n\nPrepnutie na poslednú aplikáciu\n- Krátkym potiahnutím nahor a podržaním uprostred</string>
+    <string name="use_bottom_gesture_title">Navigačné gestá</string>
+    <string name="use_bottom_gesture_summary">Pre navigáciu použiť gestá potiahnutím zdola nahor</string>
+    <string name="gesture_swipe_length_title">Dĺžka spúšťacej oblasti</string>
+    <string name="gesture_swipe_length_summary">Dĺžka požadovaného potiahnutia na spustenie gesta</string>
+    <string name="gesture_swipe_start_title">Počiatočná výška spustenia gesta</string>
+    <string name="gesture_swipe_start_summary">Minimálna výška od spodného okraja pre spustenie gesta</string>
+    <string name="gesture_action_timeout_title">Časový limit pre spustenie gesta</string>
+    <string name="gesture_action_timeout_summary">Časový limit pred spustením gesta</string>
+    <string name="unit_dpi">dpi</string>
+    <string name="unit_px">px</string>
+    <string name="header_category_omni">OmniGears</string>
+    <string name="omni_dashboard_summary">Prispôsobte svoje zariadenie</string>
+    <string name="button_settings_title">Tlačidlá</string>
+    <string name="columns_menu">Rozloženie stĺpcov</string>
+    <string name="hide_summary_menu">Skryť prehľad</string>
+    <string name="more_settings_title">Viac</string>
+    <string name="omni_device_parts">Funkcie zariadenia</string>
+    <string name="style_settings_title">Štýl</string>
+    <string name="style_settings_summary">Tapety a ďalšie</string>
+    <string name="custom_bars_settings_title">Panely</string>
     <!-- StatusBar -->
+    <string name="statusbar_settings_category">Stavový riadok</string>
+    <string name="use_old_mobiletype_title">Použiť starý štýl zobrazenia siete</string>
+    <string name="use_old_mobiletype_summary">Zlúčiť ikony signálu a siete</string>
+    <string name="hide_notch_title">Skryť výrez</string>
+    <string name="hide_notch_summary">Aplikácie nemôžu používať oblasť výrezu</string>
+    <string name="recents_tasks_visible_disable_title">Vypnúť limity nedávnych aplikácií</string>
+    <string name="recents_tasks_visible_disable_summary">Zobraziť všetky nedávne aplikácie bez obmedzenia času a veľkosti</string>
     <!-- Display Manager -->
+    <string name="omni_display_manager">Farby displeja</string>
     <!-- Dialer Setting -->
+    <string name="dialer_settings_title">Telefón</string>
+    <string name="incall_vibrate_connect_title">Vibrovať pri spojení</string>
+    <string name="incall_vibrate_connect_summary">Zariadenie bude pri spojení vibrovať</string>
+    <string name="incall_vibrate_call_wait_title">Vibrovať pri čakajúcom hovore</string>
+    <string name="incall_vibrate_call_wait_summary">Zariadenie bude vibrovať pri čakajúcom hovore</string>
+    <string name="incall_vibrate_disconnect_title">Vibrovať pri odpojení</string>
+    <string name="incall_vibrate_disconnect_summary">Zariadenie bude pri odpojení vibrovať</string>
     <!-- Fingerprint -->
+    <string name="fingerprint_settings_title">Odtlačok prsta</string>
+    <string name="fingerprint_category_custom_icon">Vlastná ikona</string>
+    <string name="fingerprint_custom_icon_select">Vybrať vlastný súbor</string>
+    <string name="ambient_pulse_brightness_title">Jas upozornenia</string>
+    <string name="ambient_pulse_brightness_summary">Nastavte jas, ktorý sa použije pri zobrazovaní nových upozornení</string>
+    <string name="ambient_doze_brightness_title">Jas pri režime Vždy zapnuté</string>
+    <string name="ambient_doze_brightness_summary">Nastavte jas, ktorý sa má použiť pri režime Vždy zapnuté</string>
     <!-- doze on charge -->
+    <string name="doze_on_charge_title">Zobraziť režim Vždy zapnuté pri nabíjaní</string>
+    <string name="doze_on_charge_summary">Prebudiť obrazovku pri nabíjaní</string>
     <!-- lock screen media blur -->
+    <string name="lockscreen_media_blur_title">Úroveň rozostrenia obalu interpreta</string>
+    <string name="lockscreen_media_blur_summary">Nastavenie hodnoty rozostrenia obalu interpreta</string>
+    <string name="recents_style_info_title">Platí len v prípade, že je použitý režim navigácia pomocou troch tlačidiel.</string>
+    <string name="omni_remote_title">OmniRemote</string>
+    <string name="omni_remote_summary">Server VNC umožňuje vzdialené pripojenie k zariadeniu</string>
+    <string name="show_rotation_suggestions_title">Zobraziť návrhy otáčania</string>
+    <string name="show_rotation_suggestions_summary">V uzamknutom režime otáčania</string>
+    <string name="pulse_ambient_light_title">Zobraziť pri novom upozornení</string>
+    <string name="pulse_ambient_light_summary">Keď dostanete upozornenie, zapne LED</string>
+    <string name="ambient_notification_light_enabled_title">Zobraziť pri Vždy zapnuté</string>
+    <string name="ambient_notification_light_enabled_summary">Zapnúť LED pri novom upozornení pomocou režimu Vždy zapnuté</string>
+    <string name="pulse_ambient_light_note">Prebudenie obrazovky pri príchode nových upozornení musí byť zapnuté</string>
+    <string name="ambient_brigthness_category_title">Jas obrazovky</string>
+    <string name="pulse_ambient_category_title">Blikať LED pri upozornení</string>
+    <string name="ambient_notification_light_hide_aod_title">Zobraziť upozornenie iba pomocou LED</string>
+    <string name="ambient_notification_light_hide_aod_summary">Ukryje všetky ostatné prvky z režimu Vždy zapnuté</string>
+    <string name="ambient_notification_light_color_title">Vlastná farba</string>
+    <string name="ambient_notification_light_color_summary">Predvolená farba LED</string>
+    <string name="ambient_notification_light_timeout_title">Časový limit pre LED</string>
+    <string name="entry_infinite">Nekonečno</string>
+    <string name="entry_five_minute">5 minút</string>
+    <string name="entry_ten_minute">10 minút</string>
+    <string name="entry_thirty_minute">30 minút</string>
+    <string name="entry_sixty_minute">60 minút</string>
+    <string name="entry_fifteen_minute">15 minút</string>
+    <string name="ambient_notification_light_color_mode_title">Farba LED</string>
+    <string name="ambient_notification_light_color_mode_automatic">Farby upozornenia</string>
+    <string name="ambient_notification_light_color_mode_accent">Systémová farba zvýraznenia</string>
+    <string name="ambient_notification_light_color_mode_custom">Vlastná farba</string>
+    <string name="doze_brightness_force_title">Vynútiť úroveň jasu</string>
+    <string name="doze_brightness_force_summary">Nastaviť tieto hodnoty nezávisle na aktuálnej hodnote</string>
+    <!-- Battery Info -->
 </resources>

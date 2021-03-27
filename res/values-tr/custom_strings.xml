@@ -17,6 +17,7 @@
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="settings_label">OmniGears</string>
     <string name="ok">Tamam</string>
     <string name="advanced">İleri seviye</string>
     <string name="profiles_add">Ekle...</string>
@@ -303,7 +304,7 @@
     <string name="dashboard_divider_show_title">Sütun ayracını göster</string>
     <!-- global acions config -->
     <string name="global_actions_power_title">Güç</string>
-    <string name="global_actions_reboot_title">Tekrar başlat</string>
+    <string name="global_actions_reboot_title">Yeniden başlat</string>
     <string name="global_actions_lockdown_title">Kilitle</string>
     <string name="global_actions_settings_title">Ayarlar</string>
     <string name="global_actions_airplane_title">Uçak modu</string>
@@ -316,9 +317,9 @@
     <string name="global_actions_dnd_title">Rahatsız etmeyin</string>
     <string name="global_actions_summary">Güç menüsünde gösterilen eylemler</string>
     <string name="global_actions_header">Bazı eylemler sadece ayara göre veyâ cihaz kilidi açıksa görünür</string>
-    <string name="global_actions_advanced_reboot_summary">Tekrar başlatma menüsünde daha fazla tercih gösterilir</string>
-    <string name="global_actions_advanced_reboot_title">İleri seviye tekrar başlatmayı devreye sok</string>
-    <string name="global_actions_advanced_reboot_summary_new">Telefon kilitli değilse tekrar başlatma menüsünde daha fazla tercih gösterilir</string>
+    <string name="global_actions_advanced_reboot_summary">Yeniden başlatma menüsünde daha fazla tercih gösterilir</string>
+    <string name="global_actions_advanced_reboot_title">İleri seviye yeniden başlatmayı devreye sok</string>
+    <string name="global_actions_advanced_reboot_summary_new">Telefon kilitli değilse yeniden başlatma menüsünde daha fazla tercih gösterilir</string>
     <string name="screenshot_crop_and_share_title">Ekran görüntüsünü kırpma ve paylaşma</string>
     <string name="screenshot_crop_and_share_summary">Bir ekran görüntüsü alındıktan sonra kırpma, kaydetme veyâ paylaşma gibi bazı işlemlerin yerine getirilmesi için bir düzenleyici penceresi gösterir</string>
     <!--<string name="screenshot_crop_behavior_title"></string>
@@ -763,4 +764,22 @@
     <string name="ambient_notification_light_color_mode_custom">Özel renk</string>
     <string name="doze_brightness_force_title">Mecburi parlaklık değeri</string>
     <string name="doze_brightness_force_summary">Parlaklığı mevcut değerden bağımsız bir değere ayarlayın</string>
+    <string name="status_bar_bt_battery_title">Bluetooth pil seviyesini göster</string>
+    <string name="status_bar_bt_battery_summary">Desteklenen cihazların pil seviyesini durum çubuğunda da göster</string>
+    <string name="lockscreen_hidden">Hiçbiri</string>
+    <string name="tuner_other_apps">Diğer uygulamalar</string>
+    <string name="lockscreen_shortcut_left">Sol kısayol</string>
+    <string name="lockscreen_shortcut_right">Sağ kısayol</string>
+    <string name="tuner_app"><xliff:g id="app">%1$s</xliff:g> uygulaması</string>
+    <string name="tuner_launch_app"><xliff:g id="app" example="Settings">%1$s</xliff:g> uygulamasını başlat</string>
+    <string name="lockscreen_unlock_right">Sağ kısayol kilidi de açar</string>
+    <string name="lockscreen_unlock_left">Sol kısayol kilidi de açar</string>
+    <string name="keyguard_shortuts">Kısayollar</string>
+    <string name="lockscreen_default">Varsayılan</string>
+    <!-- Battery Info -->
+    <string name="keyguard_battery_info">Pil bilgisi</string>
+    <string name="keyguard_show_battery_bar_title">Pil çubuğunu göster</string>
+    <string name="keyguard_show_battery_bar_summary">Always on display\'de şarj edilirken pil çubuğunu gösterir</string>
+    <string name="keyguard_show_battery_bar_always_title">Pil çubuğunu daima göster</string>
+    <string name="keyguard_show_battery_bar_always_summary">Pil çubuğunu şarj edilirken daima gösterir</string>
 </resources>

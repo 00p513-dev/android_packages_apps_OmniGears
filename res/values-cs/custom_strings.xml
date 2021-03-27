@@ -17,6 +17,7 @@
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="settings_label">OmniGears</string>
     <string name="ok">OK</string>
     <string name="advanced">Rozšířené</string>
     <string name="profiles_add">Přidat...</string>
@@ -763,4 +764,22 @@
     <string name="ambient_notification_light_color_mode_custom">Vlastní barva</string>
     <string name="doze_brightness_force_title">Vynutit úroveň jasu</string>
     <string name="doze_brightness_force_summary">Nastavte na tyto hodnoty nezávisle na aktuální hodnotě</string>
+    <string name="status_bar_bt_battery_title">Zobrazit stav baterie zařízení Bluetooth</string>
+    <string name="status_bar_bt_battery_summary">Pro podporovaná zařízení zobrazit úroveň baterie také ve stavovém řádku</string>
+    <string name="lockscreen_hidden">Nic</string>
+    <string name="tuner_other_apps">Další aplikace</string>
+    <string name="lockscreen_shortcut_left">Levá zkratka</string>
+    <string name="lockscreen_shortcut_right">Pravá zkratka</string>
+    <string name="tuner_app"><xliff:g id="app">%1$s</xliff:g> aplikace</string>
+    <string name="tuner_launch_app">Spustit <xliff:g id="app" example="Settings">%1$s</xliff:g></string>
+    <string name="lockscreen_unlock_right">Zkratka vpravo také odemkne</string>
+    <string name="lockscreen_unlock_left">Zkratka vlevo také odemkne</string>
+    <string name="keyguard_shortuts">Zkratky</string>
+    <string name="lockscreen_default">Výchozí</string>
+    <!-- Battery Info -->
+    <string name="keyguard_battery_info">Info o baterii</string>
+    <string name="keyguard_show_battery_bar_title">Zobrazit pruh baterie</string>
+    <string name="keyguard_show_battery_bar_summary">Zobrazit pruh baterie při nabíjení v režimu AOD</string>
+    <string name="keyguard_show_battery_bar_always_title">Vždy zobrazit pruh baterie</string>
+    <string name="keyguard_show_battery_bar_always_summary">Vždy zobrazit pruh baterie při nabíjení</string>
 </resources>

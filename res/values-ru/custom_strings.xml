@@ -758,4 +758,5 @@
     <string name="ambient_notification_light_color_mode_automatic">Цвет уведомления</string>
     <string name="ambient_notification_light_color_mode_accent">Цвет акцента системы</string>
     <string name="ambient_notification_light_color_mode_custom">Пользовательский цвет</string>
+    <!-- Battery Info -->
 </resources>

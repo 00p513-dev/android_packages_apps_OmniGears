@@ -73,6 +73,7 @@
     <string name="button_home_answers_call_title">Répondre à l\'appel</string>
     <string name="button_home_answers_call_summary">Un appui sur le bouton Accueil répondra à l\'appel entrant</string>
     <string name="button_other_title">Autre</string>
+    <string name="keys_action_app_switch_defaut">Par défaut</string>
     <string name="keys_action_omniswitch_short">OmniSwitch</string>
     <string name="button_back_kill_enable_title">Tuer l\'application avec la touche retour</string>
     <string name="button_back_kill_enable_summary">Tuer l\'application avec un appui long sur le bouton Retour</string>
@@ -280,6 +281,7 @@
     <string name="header_weather_summary">Activer l\'affichage météo de l\'en-tête sur le panneau de notification</string>
     <string name="weather_icon_pack_title">Pack d\'icône des conditions météo</string>
     <string name="weather_icon_pack_note">Remarque\u003a vous pouvez installer de nouveaux packs d\'icônes à partir du Play store en recherchant avec les mots clés « Chronus icons »</string>
+    <string name="weather_icon_pack_info_title">Le pack d\'icônes est utilisé dans les paramètres rapides et l\'écran de verrouillage</string>
     <!-- Navigationbar settings -->
     <string name="navigationbar_title">Barre de navigation</string>
     <!-- Enable Tablet Style navigation bar -->
@@ -485,6 +487,7 @@
     <string name="volume_steps_5">5 incréments</string>
     <string name="system_volume_option_title">Volume principal</string>
     <string name="call_volume_option_title">Volume pendant un appel</string>
+    <string name="theme_select_summary">Parcourir et sélectionner les thèmes installés</string>
     <string name="battery_style_text">Texte </string>
     <string name="battery_style_default">Par défaut</string>
     <string name="battery_style_meter_horizontal">Barre horizontale</string>
@@ -511,6 +514,8 @@
     <string name="clock_date_position">Position de la date</string>
     <string name="clock_date_format">Format de la date</string>
     <!-- fingerprint authentication vibration -->
+    <string name="fprint_sucess_vib_title">Authentification par empreintes digitales</string>
+    <string name="fprint_sucess_vib_summary">Retour haptique lors de l\'authentification via le capteur d\'empreinte</string>
     <!-- Quick Pulldown-->
     <!-- Expanded desktop -->
     <string name="show_all_apps_menu">Toutes les applications</string>
@@ -533,11 +538,33 @@
     <string name="hide_lockscreen_alarm_summary">Changer la visibilité du texte de l\'alarme sous l\'horloge</string>
     <string name="hide_lockscreen_status_bar_title">Masquer la barre d\'état</string>
     <string name="hide_lockscreen_status_bar_summary">Toucher la barre d\'état pour le faire apparaitre ou disparaitre</string>
+    <string name="lockscreen_weather_title">Conditions météorologique</string>
+    <string name="lockscreen_weather_summary">Affiche les conditions actuelles ainsi que la température</string>
+    <string name="navigation_bar_menu_arrow_keys_title">Flèches de navigation lorsque le clavier est ouvert</string>
+    <string name="navigation_bar_menu_arrow_keys_summary">Affiche des flèches de chaque côté de la barre de navigation permettant de faire bouger le curseur lors d\'une saisie.</string>
+    <string name="clock_style_digital">Numérique</string>
+    <string name="clock_style_binary">Binaire</string>
+    <string name="digital_clock_settings_title">Horloge numérique</string>
     <!-- QuickSettings Panel Transparency -->
+    <string name="custom_bars_settings_title">Barres</string>
     <!-- StatusBar -->
+    <string name="use_old_mobiletype_title">Utiliser l\'ancien style pour l\'icone réseau</string>
+    <string name="use_old_mobiletype_summary">Fusionne l\'icone du type de réseau et de l’intensité du signal</string>
+    <string name="recents_tasks_visible_disable_title">Désactiver la limite d\'applications récentes</string>
     <!-- Display Manager -->
     <!-- Dialer Setting -->
+    <string name="dialer_settings_title">Téléphone</string>
+    <string name="incall_vibrate_connect_title">Vibrer lors de la connexion</string>
+    <string name="incall_vibrate_connect_summary">Vibration de l\'appareil à la connexion</string>
+    <string name="incall_vibrate_call_wait_title">Vibrer en cas d\'appel en attente</string>
+    <string name="incall_vibrate_call_wait_summary">Vibrer en cas d\'appel en attente</string>
+    <string name="incall_vibrate_disconnect_title">Vibrer lors de la déconnexion</string>
+    <string name="incall_vibrate_disconnect_summary">Vibrer lors de la déconnexion d\'appel</string>
     <!-- Fingerprint -->
+    <string name="fingerprint_settings_title">Empreintes digitales</string>
     <!-- doze on charge -->
     <!-- lock screen media blur -->
+    <string name="recents_style_info_title">Valable uniquement si le mode de navigation à 3 boutons est utilisé.</string>
+    <string name="omni_remote_summary">Serveur VNC pour autoriser la connexion à distance au périphérique</string>
+    <!-- Battery Info -->
 </resources>
