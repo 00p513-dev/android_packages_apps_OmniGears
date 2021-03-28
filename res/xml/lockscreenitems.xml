@@ -92,7 +92,7 @@
             android:key="sysui_keyguard_show_battery_bar"
             android:title="@string/keyguard_show_battery_bar_title"
             android:summary="@string/keyguard_show_battery_bar_summary"
-            android:defaultValue="true" />
+            android:defaultValue="false" />
 
         <org.omnirom.omnilib.preference.SystemSettingSwitchPreference
             android:key="sysui_keyguard_show_battery_bar_always"

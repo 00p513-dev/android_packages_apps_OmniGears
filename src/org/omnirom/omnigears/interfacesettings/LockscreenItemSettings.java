@@ -89,19 +89,17 @@ public class LockscreenItemSettings extends SettingsPreferenceFragment implement
 
         mBatteryBar = (SystemSettingSwitchPreference) findPreference(KEYGUARD_SHOW_BATTERY_BAR);
         mBatteryBar.setChecked(Settings.System.getInt(getContentResolver(),
-                        Settings.System.OMNI_KEYGUARD_SHOW_BATTERY_BAR, 1) != 1);
+                        Settings.System.OMNI_KEYGUARD_SHOW_BATTERY_BAR, 1) != 0);
         mBatteryBar.setOnPreferenceChangeListener(this);
 
         mBatteryBarAlways = (SystemSettingSwitchPreference) findPreference(KEYGUARD_SHOW_BATTERY_BAR_ALWAYS);
         mBatteryBarAlways.setChecked(Settings.System.getInt(getContentResolver(),
-                        Settings.System.OMNI_KEYGUARD_SHOW_BATTERY_BAR, 1) != 0);
+                        Settings.System.OMNI_KEYGUARD_SHOW_BATTERY_BAR_ALWAYS, 1) != 0);
         mBatteryBarAlways.setOnPreferenceChangeListener(this);
 
         mBatteryInfo = getPreferenceScreen().findPreference(PREFERENCE_BATTERY);
         boolean showBatteryCategory = getResources().getBoolean(R.bool.config_show_top_level_battery);
         if (!showBatteryCategory) {
-            Settings.System.putInt(getContentResolver(),
-                        Settings.System.OMNI_KEYGUARD_SHOW_BATTERY_BAR, 0);
             getPreferenceScreen().removePreference(mBatteryInfo);
         }
 
